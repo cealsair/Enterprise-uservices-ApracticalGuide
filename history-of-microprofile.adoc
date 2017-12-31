@@ -1,0 +1,3 @@
+= History of MicroProfile
+
+Java EE has been an extremely successful platform. The Java Community Process (JCP) has been the steward of over 20 compatible implementations over its nearly 20 year history, resulting in a $4B industry. However, Oracle management of Java EE (unintentional or not) stalled innovations and while other standards have developed, the Java community worldwide, and CIOs at all major enterprises desired an open standard for Java within their enterprise.

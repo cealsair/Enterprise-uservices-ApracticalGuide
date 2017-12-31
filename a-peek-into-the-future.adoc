@@ -1,0 +1,3 @@
+= A peek into the future
+
+Discuss potential future sub-projects as well as Eclipse EE4J & Eclipse MicroProfile.

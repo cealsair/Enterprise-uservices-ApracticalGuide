@@ -1,0 +1,5 @@
+= Multi-speed IT
+
+Businesses need to adapt to the new demands of the Digital Economy. Not only do they have to create, run and support traditional-style applications but also applications that need to conform to the demands of the Digital Economy. They have to support both waterfall and DevOps processes, hybrid cloud infrastructures, and SOA and microservice architectures.
+
+EXPAND THIS CHAPTER
