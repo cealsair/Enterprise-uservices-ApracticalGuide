@@ -1,1 +1,7 @@
 = Current Eclipse MicroProfile Governance
+
+As mentioned before, Eclipse MicroProfile is community-driven project made up of individuals, vendors, and organizations.
+
+ADD SOME MORE HERE.
+
+Some of these non-Java-EE APIs may be submitted as Java Specification Requests (JSRs) for inclusion into the Java EE standard. Eclipse MicroProfile follows a time-boxed rapid incremental release schedule. Lastly, one key aspect of Eclipse MicroProfile is that it is managed and governed by the community and not a single vendor.
