@@ -17,7 +17,7 @@
 ** link:current-eclipse-microprofile-sub-projects/open-api.adoc[Open API]
 ** link:current-eclipse-microprofile-sub-projects/type-safe-rest-client.adoc[Type safe Rest Client]
 * link:implementations-of-eclipse-microprofile.adoc[Implementations of Eclipse MicroProfile]
-* Interoperability - &quot;The Conference Application&quot;
+* link:interoperability-the-conference-application.adoc[Interoperability - &quot;The Conference Application&quot;]
 * link:a-peek-into-the-future.adoc[A peek into the future]
 * link:a-sample-implementation-developed-using-eclipse-microprofile.adoc[A sample implementation developed using Eclipse MicroProfile]
 
