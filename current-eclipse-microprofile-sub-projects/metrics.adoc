@@ -13,3 +13,7 @@ There are three scopes for metrics within the specification:
 * Base: those are metrics, mostly JVM statistics, that every compliant vendor has to support.
 * Vendor: optional vendor-specific metrics that are not portable.
 * Application: optional metrics from deployed applications. The Java-API will be shown below.
+
+== Retrieving metrics from the server
+
+== Supplying application specific metrics
