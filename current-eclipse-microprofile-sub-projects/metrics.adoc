@@ -16,4 +16,59 @@ There are three scopes for metrics within the specification:
 
 == Retrieving metrics from the server
 
+MicroProfile Metrics exposes metrics via a REST-interface, by default under the `/metrics` context root. With that it is easy to retrieve the data for example via the following `curl`command:
+
+NOTE: As of MicroProfile 1.3 there is nothing in the spec about securing that endpoint. 
+This is thus left to the individual implementation
+
+[source,shell]
+----
+$ curl http://localhost:8080/metrics
+# TYPE base:classloader_total_loaded_class_count counter
+base:classloader_total_loaded_class_count 13752.0 # <1>
+# TYPE base:cpu_system_load_average gauge
+base:cpu_system_load_average 2.796875
+# TYPE base:thread_count counter
+base:thread_count 76.0
+# TYPE vendor:memory_pool_metaspace_usage_max_bytes gauge # <2>
+vendor:memory_pool_metaspace_usage_max_bytes 7.0916056E7
+# TYPE application:hello_time_rate_per_second gauge
+application:hello_time_rate_per_second{app="shop",type="timer"} 3.169298061424996E-10 # <3>
+# TYPE application:hello_time_one_min_rate_per_second gauge
+application:hello_time_one_min_rate_per_second{app="shop",type="timer"} 0.0
+[...]
+----
+<1> A metric in the base scope
+<2> A metric in the vendor scope
+<3> A metric in the application scope
+
+If you do not provide a media type, the default output format is the Prometheus text format (which can also nicely be rendered in the browser). 
+The Prometheus format exposes additional metadata to the values in `# TYPE` and `# HELP` lines.
+
+Alternatively it is possible to retrieve data in a Json format:
+
+[source, shell]
+----
+$ curl -HAccept:application/json http://localhost:8080/metrics
+{
+  "application" :
+  {
+    "gh_count" : 0,
+    "doGet" : 1
+  }
+, "base" :
+  {
+    "classloader.totalLoadedClass.count" : 13970,
+    "cpu.systemLoadAverage" : 2.572265625,
+    "gc.PS Scavenge.time" : 290
+  }
+, "vendor" :
+  {
+    "test" : 271,
+    "memoryPool.Metaspace.usage.max" : 72016928,
+  }
+----
+
+
+
 == Supplying application specific metrics
