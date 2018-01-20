@@ -19,8 +19,9 @@ There are three scopes for metrics within the specification:
 MicroProfile Metrics exposes metrics via a REST-interface, by default under the `/metrics` context root. With that it is easy to retrieve the data for example via the following `curl`command:
 
 NOTE: As of MicroProfile 1.3 there is nothing in the spec about securing that endpoint. 
-This is thus left to the individual implementation
+This is thus left to the individual implementation.
 
+.Output in Prometheus text format (abbreviated)
 [source,shell]
 ----
 $ curl http://localhost:8080/metrics
@@ -47,6 +48,7 @@ The Prometheus format exposes additional metadata to the values in `# TYPE` and 
 
 Alternatively it is possible to retrieve data in a Json format:
 
+.Output in Json format (abbreviated)
 [source, shell]
 ----
 $ curl -HAccept:application/json http://localhost:8080/metrics
@@ -69,6 +71,40 @@ $ curl -HAccept:application/json http://localhost:8080/metrics
   }
 ----
 
+In this case the pure data is exposed. Matching metadata can be retrieved via a http `OPTIONS` call:
 
+.Retrieving metadata in Json format (abbreviated)
+[source, shell]
+----
+$ curl XOPTIONS -HAccept:application/json http://localhost:8080/metrics
+{
+  "application" : {
+    "helloTime": {
+      "unit": "nanoseconds",
+      "type": "timer",
+      "description": "Timing of the Hello call",
+      "tags": "app=shop,type=timer",
+      "displayName": "helloTime"
+    }
+ }
+[...]
+}    
+----
+
+=== Accessing specific scopes
+
+It is also possible to only retrieve data for a single scope by appending the scope name to the path:
+
+.Only getting data for base scope
+[source,shell]
+----
+$ curl http://localhost:8080/metrics/base
+# TYPE base:classloader_total_loaded_class_count counter
+base:classloader_total_loaded_class_count 13973.0
+# TYPE base:cpu_system_load_average gauge
+base:cpu_system_load_average 1.92236328125
+----
+
+It is also possible to retrieve only individual metrics by the name that is used to set the metric up, but this may go away in a future version of MicroProfile Metrics.
 
 == Supplying application specific metrics
