@@ -153,10 +153,14 @@ In the next example we let the implementation do the counting for us
 .Defining a counter that is later increased
 [source,java]
 ----
-@Counted(name="hCount", absoulte=true, description="# calls to /health")
+@Counted(name="hCount", 
+         absoulte=true, 
+         description="# calls to /health", 
+         monotonic=true) // <1>
 @GET
 @Path("/health")
 public Response getHealth() throws Exception {
   [...]
 }
 ----
+<1> This says to keep increasing the counter. Otherwise it will be decreased when leaving the method
