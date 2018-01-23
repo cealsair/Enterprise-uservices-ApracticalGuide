@@ -1,10 +1,14 @@
 = Metrics
 
-Telemetry exposes metrics of the running server like CPU and Memory usage, thread count and others. Those are then often fed into charting systems to visualize the metrics over time or serve for capacity planning purposes.
+Metrics or telemetry exposes metric data of the running server like CPU and Memory usage, thread count and others. 
+Those are then often fed into charting systems to visualize the metrics over time or serve for capacity planning purposes.
 
-The Java Virtual machine has a way to expose data for a long time via MBeans and the MBeanServer. Since Java SE 6, there is even an (RMI based) remote protocol defined for all VMs on how to access the MBean Server from remote processes.
+The Java Virtual machine has a way to expose data for a long time via MBeans and the MBeanServer. 
+Since Java SE 6, there is even an (RMI based) remote protocol defined for all VMs on how to access the MBean Server from remote processes.
 
-Dealing with this protocol is difficult and does not fit in today’s http-based interactions. The other pain point is that many of the existing servers have different properties exposed under different names. It is thus not easy to set up monitoring of different kinds of servers.
+Dealing with this protocol is difficult and does not fit in today’s http-based interactions. 
+The other pain point is that many of the existing servers have different properties exposed under different names. 
+It is thus not easy to set up monitoring of different kinds of servers.
 
 MicroProfile has created a monitoring specification that addresses the above two points via a http-based API for access by monitoring agents and a Java API that allows exporting application-specific metrics.
 
@@ -13,6 +17,14 @@ There are three scopes for metrics within the specification:
 * Base: those are metrics, mostly JVM statistics, that every compliant vendor has to support.
 * Vendor: optional vendor-specific metrics that are not portable.
 * Application: optional metrics from deployed applications. The Java-API will be shown below.
+
+== Metadata
+
+One of the very important traits of MP-Metrics is Metadata.
+While it is possible to expose a metric _foo_ with a value of _42_, it is not self-describing.
+An operator seeing that metric can't tell what this is about, what the unit is and if 42 is good value or not.
+
+Metadata is used to provide units and also a description of the metric so that the above could now be _foo: run time; 142 seconds_. This now allows for correct scaling on display to "2 Minutes and 22 seconds". And the user getting an alert about it can understand that this is about some run time timing.
 
 == Retrieving metrics from the server
 
@@ -108,3 +120,8 @@ base:cpu_system_load_average 1.92236328125
 It is also possible to retrieve only individual metrics by the name that is used to set the metric up, but this may go away in a future version of MicroProfile Metrics.
 
 == Supplying application specific metrics
+
+Applications can chose to expose metric data via a CDI programming model. 
+This model follows DropWizard Metrics, so that it is easier to transition applications to MP-Metrics.
+This is also using the annotations from DropWizard Metrics which have been augmented to support Metdata.
+
