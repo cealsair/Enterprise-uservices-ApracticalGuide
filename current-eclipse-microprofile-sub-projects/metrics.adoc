@@ -150,7 +150,7 @@ The `@Metric` annotation provides additional information like the description an
 
 In the next example we let the implementation do the counting for us
 
-.Defining a counter that is later increased
+.Defining a counter that is increased by the runtime
 [source,java]
 ----
 @Counted(name="hCount", 
