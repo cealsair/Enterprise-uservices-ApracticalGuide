@@ -125,3 +125,38 @@ Applications can chose to expose metric data via a CDI programming model.
 This model follows DropWizard Metrics, so that it is easier to transition applications to MP-Metrics.
 This is also using the annotations from DropWizard Metrics which have been augmented to support Metdata.
 
+Lets start with an example
+
+.Defining a counter that is later increased
+[source,java]
+----
+	@Inject
+	@Metric(absolute = true, description = "# calls to /health")
+	Counter hCount; // <1>
+	
+	
+	@GET
+	@Path("/health")
+	public Response getHealth() throws Exception {
+	    hCount.inc(); // <2>
+	    [...]
+	}
+----
+<1> This is the counter
+<2> It is increased by application code
+
+In the example we registering a counter by getting that injected into the variable `hCount`. 
+The `@Metric` annotation provides additional information like the description and also tells that the name is the variable name without additional package (`absolute=true`).
+
+In the next example we let the implementation do the counting for us
+
+.Defining a counter that is later increased
+[source,java]
+----
+@Counted(name="hCount", absoulte=true, description="# calls to /health")
+@GET
+@Path("/health")
+public Response getHealth() throws Exception {
+  [...]
+}
+----
