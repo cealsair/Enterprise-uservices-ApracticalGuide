@@ -34,7 +34,7 @@ NOTE: As of MicroProfile 1.3 there is nothing in the spec about securing that en
 This is thus left to the individual implementation.
 
 .Output in Prometheus text format (abbreviated)
-[source,shell]
+[source,bash]
 ----
 $ curl http://localhost:8080/metrics
 # TYPE base:classloader_total_loaded_class_count counter
