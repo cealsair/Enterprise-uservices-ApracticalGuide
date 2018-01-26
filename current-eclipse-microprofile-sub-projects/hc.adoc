@@ -1,4 +1,4 @@
-= HC
+= Health Check
 
 What is the business problem that this sub-project addresses.
 How does this sub-project go about addressing it.
