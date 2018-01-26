@@ -1,6 +1,6 @@
 = Health Check
 
-What is the business problem that this sub-project addresses.
+What is the business problem that this sub-project (Health Check) addresses.
 How does this sub-project go about addressing it.
 High-level description of sub-project API.
 Snippet(s) of sample code that implements sub-project.
