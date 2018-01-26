@@ -2,4 +2,8 @@
 
 Businesses need to adapt to the new demands of the Digital Economy. Not only do they have to create, run and support traditional-style applications but also applications that need to conform to the demands of the Digital Economy. They have to support both waterfall and DevOps processes, hybrid cloud infrastructures, and SOA and microservice architectures.
 
+This imposes many challenges to IT organizations, whose processes, people and technology have all geared toward the implementation, delivery and maintenance of traditional-style applications. Many organizations have already embarked themselves or are starting their journey into a Digital Transformation that addresses the challenges of the Digital Economy. This journey includes changes in technologies, frameworks, languages, and processes for the development, delivery, integration, and maintenance of applications, existing and new.
+
+
+
 EXPAND THIS CHAPTER
