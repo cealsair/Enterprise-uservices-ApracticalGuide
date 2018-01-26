@@ -1,6 +1,6 @@
 = Introduction
 
-The advent of the Cloud and Mobile and the acceleration of Open Source and IoT have brought about the Digital Economy, which has opened up new markets that impose new demands of businesses and their IT organizations, which are now required to not only support and maintain traditional workloads but also deliver new applications at a fast pace.
+The advent of the Cloud and Mobile and the acceleration of Open Source and IoT have brought about the Digital Economy, which has opened up new markets that impose new demands of businesses and their IT organizations, which are now required to not only support and maintain traditional workloads but also deliver new applications at a faster pace.
 
 Many technologies, languages, and frameworks have become popular within organizations to tackle these new demands, one of them being microservices, specifically enterprise Java micro services, since Java is still one of the most popular languages at IT shops.
 
