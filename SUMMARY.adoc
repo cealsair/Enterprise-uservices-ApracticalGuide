@@ -21,5 +21,6 @@
 * link:implementations-of-eclipse-microprofile.adoc[Implementations of Eclipse MicroProfile]
 * link:interoperability-the-conference-application.adoc[Interoperability - &quot;The Conference Application&quot;]
 * link:a-peek-into-the-future.adoc[A peek into the future]
+* link:appendix-a.adoc[Appendix A]
 
 
