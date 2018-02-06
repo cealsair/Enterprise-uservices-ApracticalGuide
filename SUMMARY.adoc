@@ -1,6 +1,7 @@
 = Summary
 
 * link:foreword.adoc[Foreword]
+* link:contributors.adoc[Contributors]
 * link:README.adoc[Introduction]
 * link:forces-that-fuel-the-digital-economy.adoc[Forces that fuel The Digital Economy]
 * link:multi-speed-it.adoc[Multi-speed IT]
@@ -20,6 +21,5 @@
 * link:implementations-of-eclipse-microprofile.adoc[Implementations of Eclipse MicroProfile]
 * link:interoperability-the-conference-application.adoc[Interoperability - &quot;The Conference Application&quot;]
 * link:a-peek-into-the-future.adoc[A peek into the future]
-* link:a-sample-implementation-developed-using-eclipse-microprofile.adoc[A sample implementation developed using Eclipse MicroProfile]
 
 

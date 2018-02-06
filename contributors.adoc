@@ -1,0 +1,6 @@
+= Contributors
+
+We would like to thank the following people that have contributed to the contents of this eBook:
+- Cesar Saavedra
+- Scott Stark
+- Heiko Rupp
