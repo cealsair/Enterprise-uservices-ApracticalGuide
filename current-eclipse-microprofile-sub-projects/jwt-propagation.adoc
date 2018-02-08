@@ -132,15 +132,15 @@ public class JWTInjection {
     private JsonWebToken jwtPrincipal; // <1>
     @Inject
     @Claim(standard = Claims.raw_token)
-    private ClaimValue<String> rawToken;
+    private ClaimValue<String> rawToken; <2>
 
     @GET
     @Path("/accessInjectedToken")
     @RolesAllowed("Echoer")
     public String accessInjectedToken(@Context SecurityContext sec, @QueryParam("input") String input) {
-        String name = jwtPrincipal.getName();
+        String name = jwtPrincipal.getName(); <3>
         Principal user = sec.getUserPrincipal();
-        assert  name.equals(user.getName());
+        assert  name.equals(user.getName()); <4>
         return input + ", user="+user.getName();
     }
 
@@ -156,6 +156,9 @@ public class JWTInjection {
 }
 ----
 <1> Direct injection of JsonWebToken value.
+<2> Injection of the raw JWT token string. This could be used to propagate the incoming token in a chained call.
+<3> Get user name from injected JsonWebToken.
+<4> Compare to the container provided principal name.
 
 == Eclipse resources/GitHub coordinates for MP-JWT.
 The MP-JWT project source code can be found at the following location: https://github.com/eclipse/microprofile-jwt-auth
