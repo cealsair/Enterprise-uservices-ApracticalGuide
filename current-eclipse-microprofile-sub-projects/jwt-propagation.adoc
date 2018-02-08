@@ -108,6 +108,7 @@ The basic usage of the MP-JWT API is to inject the with the JsonWebToken, its Cl
 === Injection of JsonWebToken
 This code sample illustrates access of the incoming MP-JWT token as a `JsonWebToken`, the raw JWT token string, and through the contain `Principal`.
 
+
 ```java
 import java.security.Principal;
 
@@ -159,6 +160,7 @@ public class JWTInjection {
 <2> Injection of the raw JWT token string. This could be used to propagate the incoming token in a chained call.
 <3> Get user name from injected JsonWebToken.
 <4> Compare to the container provided principal name.
+
 
 == Eclipse resources/GitHub coordinates for MP-JWT.
 The MP-JWT project source code can be found at the following location: https://github.com/eclipse/microprofile-jwt-auth
