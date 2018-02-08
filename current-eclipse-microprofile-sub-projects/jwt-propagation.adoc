@@ -106,9 +106,10 @@ public class TCKApplication extends Application {
 The basic usage of the MP-JWT API is to inject the with the JsonWebToken, its ClaimValues, or both. In this section we present snippets of typical usage.
 
 === Injection of JsonWebToken
+This code sample illustrates access of the incoming MP-JWT token as a `JsonWebToken`, the raw JWT token string, and through the contain `Principal`.
+
 [source,java]
 ----
-
 import java.security.Principal;
 
 import javax.annotation.security.DenyAll;
