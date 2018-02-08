@@ -56,9 +56,106 @@ NumericDate used by `exp`, `iat`, and other date related claims is a JSON numeri
 representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified
 UTC date/time, ignoring leap seconds.
 
+An example minimal MP-JWT in JSON would be:
+```json
+{
+     "typ": "JWT",
+    "alg": "RS256",
+    "kid": "abc-1234567890"
+}
+{
+       "iss": "https://server.example.com",
+       "jti": "a-123",
+       "exp": 1311281970,
+       "iat": 1311280970,
+       "sub": "24400320",
+       "upn": "jdoe@server.example.com",
+       "groups": ["red-group", "green-group", "admin-group", "admin"],
+}
+```
+
 == High-level description of sub-project API.
+The APIs the MP-JWT project introduces the following interfaces and classes under the `org.eclipse.microprofile.jwt` package namespace:
+
+* `JsonWebToken`, a `java.security.Principal` interface extension that makes the set of required claims available via get style accessors, along with general access to any claim in the JWT.
+* `Claims`, enumeration utility class encapsulates all the standard JWT related claims along with a description and the required Java type for the claim as returned from the `JsonWebToken#getClaim(String)`
+method.
+* `Claim`, a qualifier annotation used to signify an injection point for a {@link ClaimValue} from
+* `ClaimValue<T>`, a `java.security.Principal` interface extension for use with the `Claim` qualifier to directly inject claim values from the JWT.
+
+There is an additional `org.eclipse.microprofile.auth.LoginConfig` annotation 
+
+=== Marking a JAX-RS Application as Requiring MP-JWT Access Control
+Since the MicroProfile does not specify a deployment format, and currently does not rely on servlet metadata descriptors, we have added an `org.eclipse.microprofile.jwt.LoginConfig`
+annotation that provides the same information as the web.xml login-config element. It's intended usage is to mark a JAX-RS `Application` as requiring MicroProfile JWT RBAC as shown in the following sample:
+
+```java
+import org.eclipse.microprofile.annotation.LoginConfig;
+
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
+
+@LoginConfig(authMethod = "MP-JWT", realmName = "TCK-MP-JWT")
+@ApplicationPath("/")
+public class TCKApplication extends Application {
+}
+```
 
 
-== Snippet(s) of sample code that implements sub-project.
-== Eclipse resources/GitHub coordinates for sub-project.
+== Snippet(s) of sample code that uses MP-JWT.
+The basic usage of the MP-JWT API is to inject the with the JsonWebToken, its ClaimValues, or both. In this section we present snippets of typical usage.
+
+=== Injection of JsonWebToken
+[source,java]
+----
+
+import java.security.Principal;
+
+import javax.annotation.security.DenyAll;
+import javax.annotation.security.RolesAllowed;
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.SecurityContext;
+
+import org.eclipse.microprofile.jwt.Claim;
+import org.eclipse.microprofile.jwt.ClaimValue;
+import org.eclipse.microprofile.jwt.Claims;
+import org.eclipse.microprofile.jwt.JsonWebToken;
+
+@Path("/endp")
+@DenyAll
+public class JWTInjection {
+    @Inject
+    private JsonWebToken jwtPrincipal; <1>
+    @Inject
+    @Claim(standard = Claims.raw_token)
+    private ClaimValue<String> rawToken;
+
+    @GET
+    @Path("/accessInjectedToken")
+    @RolesAllowed("Echoer")
+    public String accessInjectedToken(@Context SecurityContext sec, @QueryParam("input") String input) {
+        String name = jwtPrincipal.getName();
+        Principal user = sec.getUserPrincipal();
+        assert  name.equals(user.getName());
+        return input + ", user="+user.getName();
+    }
+
+    @GET
+    @Path("/accessPrinipal")
+    @RolesAllowed("Echoer")
+    public String accessPrinipal(@Context SecurityContext sec, @QueryParam("input") String input) {
+        Principal user = sec.getUserPrincipal();
+        assert user instanceof JsonWebToken;
+        return input + ", user="+user.getName();
+    }
+
+}
+----
+<1> Direct injection of JsonWebToken value.
+
+== Eclipse resources/GitHub coordinates for MP-JWT.
 The MP-JWT project source code can be found at the following location: https://github.com/eclipse/microprofile-jwt-auth
