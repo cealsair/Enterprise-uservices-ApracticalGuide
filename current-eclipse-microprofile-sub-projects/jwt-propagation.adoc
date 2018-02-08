@@ -132,15 +132,15 @@ public class JWTInjection {
     private JsonWebToken jwtPrincipal; // <1>
     @Inject
     @Claim(standard = Claims.raw_token)
-    private ClaimValue<String> rawToken; <2>
+    private ClaimValue<String> rawToken; //<2>
 
     @GET
     @Path("/accessInjectedToken")
     @RolesAllowed("Echoer")
     public String accessInjectedToken(@Context SecurityContext sec, @QueryParam("input") String input) {
-        String name = jwtPrincipal.getName(); <3>
+        String name = jwtPrincipal.getName(); //<3>
         Principal user = sec.getUserPrincipal();
-        assert  name.equals(user.getName()); <4>
+        assert  name.equals(user.getName()); //<4>
         return input + ", user="+user.getName();
     }
 
