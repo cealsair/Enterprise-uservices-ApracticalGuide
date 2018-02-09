@@ -2,6 +2,13 @@
 
 The advent of the Cloud and Mobile and the acceleration of Open Source and IoT have brought about the Digital Economy, which has opened up new markets that impose new demands of businesses and their IT organizations, which are now required to not only support and maintain traditional workloads but also deliver new applications at a faster pace.
 
-Many technologies, languages, and frameworks have become popular within organizations to tackle these new demands, one of them being microservices, specifically enterprise Java micro services, since Java is still one of the most popular languages at IT shops.
+Many technologies, languages, and frameworks have become popular within organizations to tackle these new demands, one of them being microservices, specifically enterprise Java micro services, since Java is still one of the most popular languages at IT shops. But what is an enterprise Java microservice?
+
+An enterprise Java microservice:
+- is a microservice written using the Java Language
+- it can use any Java framework
+- it can use any Java APIs
+- it must be enterprise-grade: reliable, available, scalable, secure, robust, performance
+- it must fulfill the link:https://martinfowler.com/microservices/[microservice characteristics]
 
 This book goes over Eclipse MicroProfile, an open source specification for enterprise Java microservices that started back in 2016, its background and history, value proposition to organizations and businesses, community governance, the current Eclipse MicroProfile sub-projects (more are being added as the open source project evolves), its implementations, and the "Conference Application".  Lastly, it provides a peek into the direction that Eclipse MicroProfile in the future, and a sample application in Red Hat's implementation of Eclipse MicroProfile, WildFly Swarm, a runtime in Red Hat OpenShift Application Runtimes.
