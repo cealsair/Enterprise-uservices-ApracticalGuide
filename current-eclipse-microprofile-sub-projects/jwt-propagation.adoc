@@ -150,16 +150,21 @@ public class JWTInjection {
     @RolesAllowed("Echoer")
     public String accessPrinipal(@Context SecurityContext sec, @QueryParam("input") String input) {
         Principal user = sec.getUserPrincipal();
-        assert user instanceof JsonWebToken;
+        assert user instanceof JsonWebToken; //<5>
         return input + ", user="+user.getName();
     }
 
 }
 ```
-<1> Direct injection of JsonWebToken value.
+<1> Direct injection of `JsonWebToken value.
 <2> Injection of the raw JWT token string. This could be used to propagate the incoming token in a chained call.
-<3> Get user name from injected JsonWebToken.
-<4> Compare to the container provided principal name.
+<3> Get user name from injected `JsonWebToken`.
+<4> Verify that the `JsonWebToken` name claim is equal to the container provided principal name.
+<5> Verify that the container provided principal is a `JsonWebToken`.
+
+=== Injection of JWT Claim Values
+The code snippet in this section illustrates injection of individual JWT claim values. There are several different formats one can use for the injected value. 
+
 
 
 == Eclipse resources/GitHub coordinates for MP-JWT.
