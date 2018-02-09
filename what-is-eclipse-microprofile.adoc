@@ -1,6 +1,6 @@
 = What is Eclipse MicroProfile
 
-Eclipse MicroProfile, an open source specification for Enterprise Java microservices, is a community-driven innovation project whose goal is to work on microservices patterns for Enterprise Java and integrate applications with the infrastructures they run on, i.e. a cloud environment, with patterns like health checks, metrics, etc.
+Eclipse MicroProfile, an open source specification for Enterprise Java microservices, is a community-driven innovation project whose goal is to work on microservices patterns for Enterprise Java and integrate applications with the infrastructures they run on, i.e. a cloud environment, with patterns like health checks, metrics, etc. The focus of Eclipse MicroProfile is rapid collaborative innovation and this is why the project has a time-boxed release schedule, with each release including incremental updated or new features, and there is no guarantee of backward compatibility across releases.
 
 The Eclipse MicroProfile community is composed of individuals, vendors, and organizations.
 
