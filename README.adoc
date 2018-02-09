@@ -5,7 +5,8 @@ The advent of the Cloud and Mobile and the acceleration of Open Source and IoT h
 Many technologies, languages, and frameworks have become popular within organizations to tackle these new demands, one of them being microservices, specifically enterprise Java micro services, since Java is still one of the most popular languages at IT shops. But what is an enterprise Java microservice?
 
 An enterprise Java microservice:
-- is a microservice written using the Java Language
+
+- is a microservice written using the Java language
 - it can use any Java framework
 - it can use any Java APIs
 - it must be enterprise-grade: reliable, available, scalable, secure, robust, performance
