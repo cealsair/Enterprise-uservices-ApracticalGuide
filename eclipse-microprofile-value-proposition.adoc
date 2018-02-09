@@ -1,2 +1,7 @@
 = Eclipse MicroProfile Value Proposition
 
+Microservices provide the following link:https://martinfowler.com/articles/microservice-trade-offs.html[benefits]:
+
+- Strong Module Boundaries: microservices reinforce modular structure, which is particularly important for larger teams.
+- Independent Deployment: simple services are easier to deploy, and since they are autonomous, are less likely to cause system failures when they go wrong.
+- Technology Diversity: with microservices you can mix multiple languages, development frameworks and data-storage technologies.
