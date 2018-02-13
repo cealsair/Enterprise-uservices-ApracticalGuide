@@ -2,6 +2,7 @@
 
 We would like to thank the following people that have contributed to the contents of this eBook:
 
+- Jeff Mesnil
 - Cesar Saavedra
 - Scott Stark
 - Heiko Rupp
