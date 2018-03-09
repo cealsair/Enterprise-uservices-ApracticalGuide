@@ -1,6 +1,6 @@
 = Interoperability - "The Conference Application"
 
-The “Conference Application”, first link:https://www.youtube.com/watch?v=iG-XvoIfKtg[demoed] during Devoxx Belgium back in November 2016, is a MicroProfile demo that showcases the integration of different MicroProfile vendor implementations.  The demo consisted of a variety of microservices, each developed by a different vendor implementation of MicroProfile. This demo is maintained by the community.
+The “Conference Application”, first link:https://www.youtube.com/watch?v=iG-XvoIfKtg[demoed] during Devoxx Belgium back in November 2016, is a MicroProfile demo that showcases the integration of different MicroProfile vendor implementations.  The demo consisted of a variety of microservices, each developed by a different vendor implementation of MicroProfile. This link:https://github.com/eclipse/microprofile-conference[demo] is maintained by the community.
 
 
 
