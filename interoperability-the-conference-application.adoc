@@ -1,9 +1,38 @@
 = Interoperability - "The Conference Application"
 
-The “Conference Application”, first link:https://www.youtube.com/watch?v=iG-XvoIfKtg[demoed] during Devoxx Belgium back in November 2016, is a MicroProfile demo that showcases the integration of different MicroProfile vendor implementations.  The demo consisted of a variety of microservices, each developed by a different vendor implementation of MicroProfile. This link:https://github.com/eclipse/microprofile-conference[demo] is maintained by the community.
+The “Conference Application”, first link:https://www.youtube.com/watch?v=iG-XvoIfKtg[demoed] during Devoxx Belgium back in November 2016, is a MicroProfile demo that showcases the integration of different MicroProfile vendor implementations.  The demo consists of four microservices, each developed by a different vendor implementation of MicroProfile. This link:https://github.com/eclipse/microprofile-conference[demo] is maintained by the community.
 
 The "Conference Application" mimics an app used by the attendee of a technical conference to:
 
+- See list of sessions to attend (Session microservice)
+- See list of speakers delivering sessions (Speaker microservice)
+- Schedule sessions to attend (Schedule microservice)
+- Vote for a session (Vote microservice)
 
+The application also has a web-app component as a front-end user interface that directly subscribes to each of the microservices.
+ 
+Here is a pictorial description of the architecture of the "Conference Application":
 
+image:/assets/PicOfConfAppArch.png[alt=""]
 
+The following table summarizes each microservice, its underlying open source implementation, and vendor that developed the microservice business logic.
+
+.Conference App microservices
+[width="80%",cols="3,^2,^2,10",options="header"]
+|=========================================================
+|Microservice name |Description |Open Source Implementation |Vendor
+
+|microservice-session | Session microservice lists available conference sessions | WildFly Swarm |
+Red Hat
+
+|microservice-schedule |Schedule microservice allows the scheduling of conference sessions | Payara Micro (GlassFish) |
+Payara
+
+|microservice-speaker |Speaker microservice lists conference session speakers | Apache TomEE | Tomitribe
+
+|microservice-vote |Vote microservice allows the user to vote for conference sessions | Open Liberty |
+IBM
+
+|=========================================================
+
+Throughout this book, we will use the microservice-session microservice developed in the WildFly Swarm implementation of MicroProfile as a running example to showcase each Eclipse MicroProfile API. By the end of the book, you will have a working sample of the Session microservice.
