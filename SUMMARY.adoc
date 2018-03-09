@@ -9,6 +9,7 @@
 * link:what-is-eclipse-microprofile.adoc[What is Eclipse MicroProfile]
 * link:eclipse-microprofile-value-proposition.adoc[Eclipse MicroProfile Value Proposition]
 * link:current-eclipse-microprofile-governance.adoc[Current Eclipse MicroProfile Governance]
+* link:interoperability-the-conference-application.adoc[Interoperability - &quot;The Conference Application&quot;]
 * link:current-eclipse-microprofile-sub-projects.adoc[Current Eclipse MicroProfile sub-projects]
 ** link:current-eclipse-microprofile-sub-projects/config.adoc[Config]
 ** link:current-eclipse-microprofile-sub-projects/fault-tolerance.adoc[Fault Tolerance]
@@ -20,7 +21,6 @@
 ** link:current-eclipse-microprofile-sub-projects/type-safe-rest-client.adoc[Type safe Rest Client]
 * link:deploying-eclipse-microprofile-to-a-service-mesh.adoc[Deploying Eclipse MicroProfile to a Service Mesh]
 * link:implementations-of-eclipse-microprofile.adoc[Implementations of Eclipse MicroProfile]
-* link:interoperability-the-conference-application.adoc[Interoperability - &quot;The Conference Application&quot;]
 * link:a-peek-into-the-future.adoc[A peek into the future]
 * link:appendix-a.adoc[Appendix A]
 
