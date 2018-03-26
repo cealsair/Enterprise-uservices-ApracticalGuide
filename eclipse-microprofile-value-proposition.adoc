@@ -18,4 +18,4 @@ In addition to the general benefits of microservices, Eclipse MicroProfile parti
 - interoperability across different MicroProfile implementations provides users the freedom to select one or combine many MicroProfile implementations in an application.
 - multiple ways to use the APIs. Eclipse MicroProfile APIs provide easy-to-use interfaces, such as CDI-based, programmatic, command-line, and file-based (configuration-based).
 - a thorough set of artifacts for each API, including a Test Compatibility Kit (TCK), Javadoc, PDF document for download, API Maven artifact coordinates, Git tag, and downloads (spec and source code).
-- other benefits that are particular to each API, discussed in each Eclipse MicroProfile sub-project section throughout the eBook.
+- other benefits that are particular to each API, are discussed in each Eclipse MicroProfile sub-project section throughout the eBook.
