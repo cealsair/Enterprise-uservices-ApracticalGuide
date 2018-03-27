@@ -2,7 +2,7 @@
 
 In the modern world of microservices, a single request can span across multiple processes running on different machines, datacenters or even geographical regions. The problem is often even more difficult because these services are written in different programming languages. These distributed polyglot applications are becoming gradually more difficult to understand and troubleshoot.
 
-OpenTracing (OT) is a vendor-neutral standard for describing distributed transactions. It is a specification and a set of APIs for different programming languages. MicroProfile-OpenTracing (MP-OT) brings OpenTracing to enterprise Java environment. At the moment MP-OT spec defines tracing for JAX-RS and explicit code instrumentation.
+OpenTracing (OT) is a vendor-neutral standard for describing distributed transactions. It is a specification and a set of APIs for different programming languages. MicroProfile-OpenTracing (MP-OT) brings OpenTracing to enterprise Java environment. At the moment MP-OT specification defines tracing for JAX-RS and explicit code instrumentation.
 
 == Configuration
 
@@ -10,7 +10,7 @@ Because OpenTracing is a vendor-neutral it works with any tracing vendor impleme
 
 == Accessing Tracer
 
-MP-OT exposes `io.opentracing.Tracer` as a CDI bean. Tracer bean can be used to create additional spans or add data (tags, logs) to the current active span. For example, this can be used for adding HTTP headers to the current server span.
+MP-OT exposes `io.opentracing.Tracer` as a CDI bean. The tracer bean can be used to create additional spans or add data (tags, logs) to the current active span. For example, this can be used for adding HTTP headers to the current server span or create an additional span to trace an important operation.
 
 [source, java]
 ----
@@ -34,7 +34,7 @@ public class Service {
 
 When MP-OT implementation is enabled container automatically traces all JAX-RS endpoints and also all outbound request made by `javax.ws.rs.client.Client`. Therefore no custom configuration is required.
 
-The following code snippet shows two REST endpoints. The first endpoint `/hello` creates one span modeling its execution. The second endpoint `/operation` creates two spans. The first endpoint models server processing of HTTP request. The second span is explicitly added by user and models an invocation of method `operation`. The second span demonstrates how users can create additional spans to model significant operations for their business or operational related monitoring.
+The following code snippet shows two REST endpoints. The first endpoint `/hello` creates one span modeling its execution. The second endpoint `/operation` creates two spans. The first span models server processing of HTTP request. The second span is explicitly added by user and models the invocation of the method `operation`. The second span demonstrates how users can create additional spans to model significant operations for their business or operational related monitoring.
 
 [source, java]
 ----
@@ -52,8 +52,9 @@ public class JaxRsService {
     
     @GET
     @Path("/operation")
-    public String operation() {
-        return "Hello!";
+    public String restOperation() {
+        operation();
+        return "Operation!";
     }
     
     private void operation() {
@@ -68,7 +69,7 @@ public class JaxRsService {
 
 == Explicit tracing
 
-Important service classes can be traced by adding `@Traced` annotation. This annotation can be added at class or method level. If the annotation is applied on a class level all methods are traced. A method can be excluded from tracing with `@Traced(false)`. The default span operation name is set to `<package>.<class>.<method-name>`, however this can be overridden by `@Traced(operationName = "customName")`. When using custom names keep in mind to use different names for different operations. 
+Important service classes can be traced by adding `@Traced` annotation. This annotation can be added at class or method level. If the annotation is applied on a class level all methods are traced. A method can be excluded from tracing by using `@Traced(false)`. The default span operation name is set to `<package>.<class>.<method-name>`, however this can be overridden by `@Traced(operationName = "customName")`. When using custom names keep in mind to use different names for different operations. 
 
 [source, java]
 ----
