@@ -67,7 +67,7 @@ public class JaxRsService {
 }
 ----
 
-== Explicit tracing
+== Explicit Tracing
 
 Important service classes can be traced by adding `@Traced` annotation. This annotation can be added at class or method level. If the annotation is applied on a class level all methods are traced. A method can be excluded from tracing by using `@Traced(false)`. The default span operation name is set to `<package>.<class>.<method-name>`, however this can be overridden by `@Traced(operationName = "customName")`. When using custom names keep in mind to use different names for different operations. 
 
