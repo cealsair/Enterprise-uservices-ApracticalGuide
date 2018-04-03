@@ -1,7 +1,101 @@
-= Open Tracing
+= OpenTracing
 
-What is the business problem that this sub-project addresses.
-How does this sub-project go about addressing it.
-High-level description of sub-project API.
-Snippet(s) of sample code that implements sub-project.
-Eclipse resources/GitHub coordinates for sub-project.
+In the modern world of microservices, a single request can span across multiple processes running on different machines, datacenters or even geographical regions. The problem is often even more difficult because these services are written in different programming languages. These distributed polyglot applications are becoming gradually more difficult to understand and troubleshoot.
+
+OpenTracing (OT) is a vendor-neutral standard for describing distributed transactions. It is a specification and a set of APIs for different programming languages. MicroProfile-OpenTracing (MP-OT) brings OpenTracing to enterprise Java environment. At the moment MP-OT specification defines tracing for JAX-RS and explicit code instrumentation.
+
+== Configuration
+
+Because OpenTracing is a vendor-neutral it works with any tracing vendor implementation. Tracer implementations use different configurations, therefore, MP-OT leaves this entirely to the implementation.
+
+== Accessing Tracer
+
+MP-OT exposes `io.opentracing.Tracer` as a CDI bean. The tracer bean can be used to create additional spans or add data (tags, logs) to the current active span. For example, this can be used for adding HTTP headers to the current server span or create an additional span to trace an important operation.
+
+[source, java]
+----
+@ApplicationScoped
+public class Service {
+
+    @Inject
+    private Tracer tracer;
+
+    public void operation() {
+        Span span = tracer.buildSpan("name").start();
+        
+        // some code
+        
+        span.finish();
+    }    
+}
+----
+
+== JAX-RS Tracing
+
+When MP-OT implementation is enabled container automatically traces all JAX-RS endpoints and also all outbound request made by `javax.ws.rs.client.Client`. Therefore no custom configuration is required.
+
+The following code snippet shows two REST endpoints. The first endpoint `/hello` creates one span modeling its execution. The second endpoint `/operation` creates two spans. The first span models server processing of HTTP request. The second span is explicitly added by user and models the invocation of the method `operation`. The second span demonstrates how users can create additional spans to model significant operations for their business or operational related monitoring.
+
+[source, java]
+----
+@Path("/")
+public class JaxRsService {
+
+    @Inject
+    private io.opentracing.Tracer tracer;
+
+    @GET
+    @Path("/hello")    
+    public String hello() {
+        return "Hello!";
+    }
+    
+    @GET
+    @Path("/operation")
+    public String restOperation() {
+        operation();
+        return "Operation!";
+    }
+    
+    private void operation() {
+        Span span = tracer.buildSpan("operation").start();
+        
+        // execute some code
+        
+        span.finish();
+    }
+}
+----
+
+== Explicit tracing
+
+Important service classes can be traced by adding `@Traced` annotation. This annotation can be added at class or method level. If the annotation is applied on a class level all methods are traced. A method can be excluded from tracing by using `@Traced(false)`. The default span operation name is set to `<package>.<class>.<method-name>`, however this can be overridden by `@Traced(operationName = "customName")`. When using custom names keep in mind to use different names for different operations. 
+
+[source, java]
+----
+@Traced
+@ApplicationScoped
+public class Service {
+    public void operation() {
+        // some code
+    }
+    
+    @Traced(false)
+    public void notTracedOperation() {
+        // some code
+    }
+    
+    @Traced(operationName = "customName")
+    public void renamedOperation() {
+        // some code
+    }
+}
+----
+
+
+== Eclipse resources/GitHub coordinates for MP-OpenTracing
+
+The MicroProfile-OpenTracing project can be found at following location:
+
+https://github.com/eclipse/microprofile-opentracing
+
