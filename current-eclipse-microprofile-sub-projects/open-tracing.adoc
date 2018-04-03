@@ -1,6 +1,6 @@
 = OpenTracing
 
-In the modern world of microservices, a single request can span across multiple processes running on different machines, datacenters or even geographical regions. The problem is often even more difficult because these services are written in different programming languages. These distributed polyglot applications are becoming gradually more difficult to understand and troubleshoot.
+In the modern world of microservices, a single request can traverse multiple processes running on different machines, datacenters or even geographical regions. The problem is often even more difficult because these services are written in different programming languages. These distributed polyglot applications are becoming gradually more difficult to understand and troubleshoot.
 
 OpenTracing (OT) is a vendor-neutral standard for describing distributed transactions. It is a specification and a set of APIs for different programming languages. MicroProfile-OpenTracing (MP-OT) brings OpenTracing to enterprise Java environment. At the moment MP-OT specification defines tracing for JAX-RS and explicit code instrumentation.
 
