@@ -6,6 +6,4 @@ Businesses need to adapt to the new demands of the Digital Economy. Not only do 
 
 This imposes many challenges to IT organizations, whose processes, people and technology have all been geared toward the implementation, delivery and maintenance of traditional-style applications. Many organizations have already embarked themselves or are starting their journey into a Digital Transformation that addresses the challenges of the Digital Economy. This journey includes changes in technologies, frameworks, languages, and processes for the development, delivery, integration, and maintenance of applications, existing and new.
 
-
-
-EXPAND THIS CHAPTER
+Whether you call it link:https://www.gartner.com/it-glossary/bimodal[bimodal IT], or link:https://go.forrester.com/wp-content/uploads/Forrester-False-Promise-of-Bimodal-IT.pdf[business technology strategy], the fact is that IT needs to deliver faster than ever before on the needs of the business, for both existing and new applications. This means IT needs to also speed up the maintenance and delivery of existing applications while exclusively adopting agile methodologies for new applications. This does not preclude, however, the need to still use different development processes, release cycles, support timelines to handle existing applications vs. new applications, which is effectively the multi-speed nature of IT.
