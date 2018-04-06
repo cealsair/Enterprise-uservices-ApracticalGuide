@@ -1,3 +1,22 @@
 = Implementations of Eclipse MicroProfile
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+As of this writing, there exist six implementations of Eclipse MicroProfile, all open source, by the way. They are:
+.Conference App microservices
+[width="80%",cols="3,^2,^2,10",options="header"]
+|=========================================================
+|Open Source Project Basis |Description |Project Location |Supporting Vendor
+
+|link:http://wildfly-swarm.io[WildFly Swarm] | Implemented as a WildFly Swarm fraction | link:https://github.com/wildfly-swarm/wildfly-swarm[GitHub] | Red Hat
+
+|link:https://openliberty.io[Open Liberty] | A feature of Open Liberty | link:https://github.com/openliberty[GitHub] | IBM
+
+|link:http://tomee.apache.org[Apache TomEE] | A feature of Apache TomEE | link:https://github.com/apache/tomee[GitHub] | Tomitribe
+
+|link:https://javaee.github.io/glassfish[GlassFish] | A feature of Payara Server | link:https://github.com/payara/Payara[GitHub] | Payara Server
+
+|link:https://hammock-project.github.io[Hammock] | A feature of Hammock | link:https://github.com/hammock-project[GitHub] | Hammock
+
+|link:https://ee.kumuluz.com[KumuluzEE] | A feature of KumuluzEE | link:https://github.com/kumuluz[GitHub] | KumuluzEE
+
+|=========================================================
+
