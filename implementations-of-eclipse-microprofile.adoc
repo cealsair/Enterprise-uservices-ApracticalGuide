@@ -7,7 +7,7 @@ As of this writing, there exist six implementations of Eclipse MicroProfile, all
 |=========================================================
 |Open Source Project Basis |Description |Project Location |Supporting Vendor
 
-|link:http://wildfly-swarm.io[WildFly Swarm] | A fraction of WildFly Swarm | link:https://github.com/wildfly-swarm/wildfly-swarm[GitHub] | Red Hat
+|link:http://wildfly-swarm.io[WildFly Swarm] | A feature of WildFly Swarm | link:https://github.com/wildfly-swarm/wildfly-swarm[GitHub] | Red Hat
 
 |link:https://openliberty.io[Open Liberty] | A feature of Open Liberty | link:https://github.com/openliberty[GitHub] | IBM
 
