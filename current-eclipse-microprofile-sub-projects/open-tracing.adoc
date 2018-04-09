@@ -32,7 +32,7 @@ public class Service {
 
 == JAX-RS Tracing
 
-When MP-OT implementation is enabled container automatically traces all JAX-RS endpoints and also all outbound request made by `javax.ws.rs.client.Client`. Therefore no custom configuration is required.
+When MP-OT implementation is enabled the container automatically traces all JAX-RS endpoints and also all outbound requests made by `javax.ws.rs.client.Client`. Therefore no custom configuration is required.
 
 The following code snippet shows two REST endpoints. The first endpoint `/hello` creates one span modeling its execution. The second endpoint `/operation` creates two spans. The first span models server processing of HTTP request. The second span is explicitly added by user and models the invocation of the method `operation`. The second span demonstrates how users can create additional spans to model significant operations for their business or operational related monitoring.
 
