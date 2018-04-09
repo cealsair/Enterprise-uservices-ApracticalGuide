@@ -13,11 +13,11 @@ Distributed tracing can be used for:
 
 === Terminology
 
-There are three key concepts in OpenTracing: Span, SpanContext and Tracer. Span is used to model an invoked operation in the system. It can be an internal method call or processing of a server request. A set of spans (directed acyclic graph) is called trace. Spans in trace are related and usually model a transaction in a distributed system. Spans hold timing information, tags and logs. Identifiers are encapsulated in object called SpanContext. The last important interface is Tracer. It is used to create spans and usually there is only one shared instance in the system.
+There are three key concepts in OpenTracing: Span, SpanContext and Tracer. Span is used to model an invoked operation in the system. It can be an internal method call or processing of a server request. A set of spans (directed acyclic graph) is called trace. Spans in the trace are related and usually model a transaction in a distributed system. Spans hold timing information, tags and logs. Identifiers are encapsulated in the object called SpanContext. The last important interface is Tracer. It is used to create spans and usually there is only one shared instance in the system.
 
 == Configuration
 
-OpenTracing is vendor-neutral and can therefore work with any vendor's tracing implementation that implements this API. Each tracer implementation will be configured differently, therefore the configuration is outside the scope of the MP-OT specification.
+OpenTracing is vendor-neutral and can, therefore, work with any vendor's tracing implementation that implements this API. Each tracer implementation will be configured differently, therefore the configuration is outside the scope of the MP-OT specification.
 
 == Accessing Tracer
 
@@ -109,7 +109,7 @@ public class Service {
 }
 ----
 
-Code snippet <<explicitly-traced-service>> shows an explicitly traced class. There are two interesting things: method `notTracedOperation` is not being traced and a span modelling the invocation of `renamedOperation` method will have string `"customName"` as an the operation name.
+Code snippet <<explicitly-traced-service>> shows an explicitly traced class. There are two interesting things: method `notTracedOperation` is not being traced and the span modeling the invocation of `renamedOperation` method will have a string `"customName"` as  the operation name.
 
 == Eclipse resources/GitHub coordinates for MP-OpenTracing
 
