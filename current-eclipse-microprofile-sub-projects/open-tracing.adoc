@@ -4,9 +4,21 @@ In the modern world of microservices, a single request can traverse multiple pro
 
 OpenTracing (OT) is a vendor-neutral standard for describing distributed transactions. It is a specification and a set of APIs for different programming languages. MicroProfile-OpenTracing (MP-OT) brings OpenTracing to enterprise Java environment. At the moment MP-OT specification defines tracing for JAX-RS and explicit code instrumentation.
 
+Distributed tracing can be used for:
+
+* Root-cause analysis
+* Latency optimization -- critical path analysis
+* Distributed context propagation -- baggage
+* Contextual logging
+
+=== Terminology
+
+There are three key concepts in OpenTracing. Span sa
+
+
 == Configuration
 
-Because OpenTracing is a vendor-neutral it works with any tracing vendor implementation. Tracer implementations use different configurations, therefore, MP-OT leaves this entirely to the implementation.
+OpenTracing is vendor-neutral and can therefore work with any vendor's tracing implementation that implements this API. Each tracer implementation will be configured differently, therefore the configuration is outside the scope of the MP-OT specification.
 
 == Accessing Tracer
 
@@ -22,9 +34,7 @@ public class Service {
 
     public void operation() {
         Span span = tracer.buildSpan("name").start();
-        
         // some code
-        
         span.finish();
     }    
 }
@@ -69,8 +79,16 @@ public class JaxRsService {
 
 == Explicit Tracing
 
-Important service classes can be traced by adding `@Traced` annotation. This annotation can be added at class or method level. If the annotation is applied on a class level all methods are traced. A method can be excluded from tracing by using `@Traced(false)`. The default span operation name is set to `<package>.<class>.<method-name>`, however this can be overridden by `@Traced(operationName = "customName")`. When using custom names keep in mind to use different names for different operations. 
+Important service classes can be explicitly traced by `@Traced` annotation. This annotation can be added at class or method level. If the annotation is applied on a class level all methods are traced. 
 
+The annotation has to parameters:
+
+* `traced = true` -- by default enables tracing
+* `operationName = ""` -- a default operation name to override the default `<package>.<class>.<method-name>`. When using custom names keep in mind to use different names for different operations. 
+
+The annotation can be also used for JAX-RS endpoint. Typical use-case is to disable tracing for certain endpoint -- health check.
+
+[[explicitly-traced-service]]
 [source, java]
 ----
 @Traced
@@ -92,6 +110,7 @@ public class Service {
 }
 ----
 
+Code snippet <<explicitly-traced-service>> shows an explicitly traced class. There are two interesting things: method `notTracedOperation` is not being traced and a span modelling the invocation of `renamedOperation` method will have string `"customName"` as an the operation name.
 
 == Eclipse resources/GitHub coordinates for MP-OpenTracing
 
