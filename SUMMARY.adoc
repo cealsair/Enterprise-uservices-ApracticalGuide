@@ -16,7 +16,7 @@
 ** link:current-eclipse-microprofile-sub-projects/hc.adoc[Health Check]
 ** link:current-eclipse-microprofile-sub-projects/jwt-propagation.adoc[JWT Propagation]
 ** link:current-eclipse-microprofile-sub-projects/metrics.adoc[Metrics]
-** link:current-eclipse-microprofile-sub-projects/open-tracing.adoc[Open Tracing]
+** link:current-eclipse-microprofile-sub-projects/open-tracing.adoc[OpenTracing]
 ** link:current-eclipse-microprofile-sub-projects/open-api.adoc[Open API]
 ** link:current-eclipse-microprofile-sub-projects/type-safe-rest-client.adoc[Type safe Rest Client]
 * link:deploying-eclipse-microprofile-to-a-service-mesh.adoc[Deploying Eclipse MicroProfile to a Service Mesh]
