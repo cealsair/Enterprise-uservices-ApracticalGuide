@@ -11,9 +11,9 @@ Distributed tracing can be used for:
 * Distributed context propagation -- baggage
 * Contextual logging
 
-=== Terminology
+==== OpenTracing Terminology
 
-There are three key concepts in OpenTracing: Span, SpanContext and Tracer. Span is used to model an invoked operation in the system. It can be an internal method call or processing of a server request. A set of spans (directed acyclic graph) is called trace. Spans in the trace are related and usually model a transaction in a distributed system. Spans hold timing information, tags and logs. Identifiers are encapsulated in the object called SpanContext. The last important interface is Tracer. It is used to create spans and usually there is only one shared instance in the system.
+There are three key concepts in OpenTracing: Span, SpanContext and Tracer. Span is used to model an unit of work (e.g. an invoked operation) in the system. It can be an internal method call or processing of a server request. A set of spans (directed acyclic graph) is called trace. Spans in the trace are related and usually model a transaction in a distributed system. Spans hold timing information, tags and logs. Identifiers are encapsulated in the object called SpanContext. The last important interface is Tracer. It is used to create spans and usually there is only one shared instance in the system.
 
 == Configuration
 
@@ -80,10 +80,10 @@ public class JaxRsService {
 
 Important service classes can be explicitly traced by `@Traced` annotation. This annotation can be added at class or method level. If the annotation is applied on a class level all methods are traced. 
 
-The annotation has to parameters:
+The annotation has two parameters:
 
 * `traced = true` -- by default enables tracing
-* `operationName = ""` -- a default operation name to override the default `<package>.<class>.<method-name>`. When using custom names keep in mind to use different names for different operations. 
+* `operationName = ""` -- a default operation name to override the default `<package>.<class>.<method-name>`. When overriding operation names keep in mind to use unique names for different operations. 
 
 The annotation can be also used for JAX-RS endpoint. Typical use-case is to disable tracing for certain endpoint -- health check.
 
