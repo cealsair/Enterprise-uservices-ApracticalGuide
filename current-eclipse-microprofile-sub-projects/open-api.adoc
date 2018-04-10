@@ -22,3 +22,5 @@ GET http://myHost:myPort/openapi
 == Configuration
 
 Configuration of various parts of this specification is provided via the MicroProfile Config mechanism.There are various ways to inject these configuration values into an MP OpenAPI framework, including the default ConfigSource as well as custom ConfigSource.
+There are many configurable items. Here is a sub-set of them.  For a complete list, please refer to the MicroProfile OpenAPI Specification document listed later in this chapter.
+
