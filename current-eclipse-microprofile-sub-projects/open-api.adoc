@@ -17,7 +17,6 @@ A fully processed OpenAPI document must be available at the root URL /openapi, a
 GET http://myHost:myPort/openapi.
 ----
 
-
 The protocol required is http. Vendors are encouraged, but not required, to support the https protocol as well, to enable a secure connection to the OpenAPI endpoint.
 
 == Configuration
