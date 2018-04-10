@@ -40,3 +40,6 @@ There are many configurable items. Here is a sub-set of them.  For a complete li
 |=========================================================
 
 
+== Eclipse resources/GitHub coordinates for MicroProfile OpenAPI
+The MicroProfile OpenAPI project can be found at following location:
+link:https://github.com/eclipse/microprofile-open-api[https://github.com/eclipse/microprofile-open-api]
