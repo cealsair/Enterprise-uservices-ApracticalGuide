@@ -11,7 +11,7 @@ The Mobile force that fuels the Digital Economy led to the necessity for busines
 
 A fully processed OpenAPI document must be available at the root URL /openapi, as a HTTP GET operation.
 
-.For example
+.For example:
 [source,bash]
 ----
 GET http://myHost:myPort/openapi
