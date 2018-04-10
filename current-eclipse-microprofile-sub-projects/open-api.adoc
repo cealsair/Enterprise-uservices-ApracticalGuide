@@ -24,3 +24,19 @@ GET http://myHost:myPort/openapi
 Configuration of various parts of this specification is provided via the MicroProfile Config mechanism.There are various ways to inject these configuration values into an MP OpenAPI framework, including the default ConfigSource as well as custom ConfigSource.
 There are many configurable items. Here is a sub-set of them.  For a complete list, please refer to the MicroProfile OpenAPI Specification document listed later in this chapter.
 
+.Sub-set of configuration items
+[width="80%",cols="1,^2",options="header"]
+|=========================================================
+|Configuration item |Description
+
+|mp.openapi.scan.disable | Configuration property to disable annotation scanning. Default value is false.
+
+|mp.openapi.servers | Configuration property to specify the list of global servers that provideconnectivity information. For example,mp.openapi.servers=https://xyz.com/v1,https://abc.com/v1
+
+|mp.openapi.servers.path. | Prefix of the configuration property to specify an alternative list of servers toservice all operations in a path. For example,mp.openapi.servers.path./airlines/bookings/{id}=https://xyz.io/v1
+
+|mp.openapi.servers.operation. | Prefix of the configuration property to specify an alternative list of servers to service an operation. Operations that want to specify an alternative list of servers must define an operationId, a unique string used to identify theoperation. For example,mp.openapi.servers.operation.getBooking=https://abc.io/v1
+
+|=========================================================
+
+
