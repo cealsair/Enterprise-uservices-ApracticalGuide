@@ -22,9 +22,9 @@ GET http://myHost:myPort/openapi
 == Configuration
 
 Configuration of various parts of this specification is provided via the MicroProfile Config mechanism.There are various ways to inject these configuration values into an MP OpenAPI framework, including the default ConfigSource as well as custom ConfigSource.
-There are many configurable items. Here is a sub-set of them.  For a complete list, please refer to the MicroProfile OpenAPI Specification document listed later in this chapter.
+There are many configurable items. Here is a subset of them.  For a complete list, please refer to the MicroProfile OpenAPI Specification document listed later in this chapter.
 
-.Sub-set of configuration items
+.Subset of configuration items
 [width="80%",cols="1,^2",options="header"]
 |=========================================================
 |Configuration item |Description
@@ -42,4 +42,5 @@ There are many configurable items. Here is a sub-set of them.  For a complete li
 
 == Eclipse resources/GitHub coordinates for MicroProfile OpenAPI
 The MicroProfile OpenAPI project can be found at following location:
+
 link:https://github.com/eclipse/microprofile-open-api[https://github.com/eclipse/microprofile-open-api]
