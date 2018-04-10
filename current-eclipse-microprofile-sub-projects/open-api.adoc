@@ -47,7 +47,7 @@ The application developer then has a few choices:
 
 1. Augment those JAX-RS annotations with the OpenAPI Annotations.
 
-2. Take the initial output from /openapi as a starting point to document your APIs via Static OpenAPI files. It’s worth mentioning that these static files can also be written before any code, which is an approach often adopted by enterprises that want to lock-in the contract of the API.
+2. Take the initial output from /openapi as a starting point to document your APIs via Static OpenAPI files. Static files can also be written before any code, which is an approach often adopted by enterprises to lock-in the contract of the API, i.e. API-first development practice.
 
 3. Use the Programming model to provide a bootstrap (or complete) OpenAPI model tree.
 
