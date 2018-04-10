@@ -42,10 +42,13 @@ There are many configurable items. Here is a subset of them.  For a complete lis
 == Generating the OpenAPI document
 
 The MP OpenAPI specification requires the generation of a valid OpenAPI document from pure JAX-RS 2.0 applications. Application developers new to OpenAPI can just deploy their existing JAX-RS application into a MP OpenAPI vendor and check out the output from /openapi!
+
 The application developer then has a few choices:
+
 1. Augment those JAX-RS annotations with the OpenAPI Annotations.
 2. Take the initial output from /openapi as a starting point to document your APIs via Static OpenAPI files. It’s worth mentioning that these static files can also be written before any code, which is an approach often adopted by enterprises that want to lock-in the contract of the API.
 3. Use the Programming model to provide a bootstrap (or complete) OpenAPI model tree.
+
 Additionally, a Filter can be used to update the OpenAPI model after it has been built from the previously described documentation mechanisms.
 
 == Eclipse resources/GitHub coordinates for MicroProfile OpenAPI
