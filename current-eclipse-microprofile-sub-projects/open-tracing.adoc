@@ -80,7 +80,7 @@ public class JaxRsService {
 
 Important service classes can be explicitly traced by `@Traced` annotation. This annotation can be added at class or method level. If the annotation is applied on a class level all methods are traced. 
 
-The annotation has to parameters:
+The annotation has two parameters:
 
 * `traced = true` -- by default enables tracing
 * `operationName = ""` -- a default operation name to override the default `<package>.<class>.<method-name>`. When overriding operation names keep in mind to use unique names for different operations. 
