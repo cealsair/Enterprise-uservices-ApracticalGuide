@@ -79,6 +79,17 @@ Here are some code samples using annotations:
 
 Some usage examples of the MicroProfile OpenAPI annotations are:
 
+.Sample 1 - Simple operation description (abbreviated)
+[source,bash]
+----
+@GET
+@Path("/findByStatus")
+@Operation(summary = "Finds Pets by status",
+           description = "Multiple status values can be provided with comma separated strings")
+public Response findPetsByStatus(...)
+{ ... }
+----
+
 
 == Eclipse resources/GitHub coordinates for MicroProfile OpenAPI
 The MicroProfile OpenAPI project can be found at following location:
