@@ -57,8 +57,6 @@ Additionally, a Filter can be used to update the OpenAPI model after it has been
 
 There are many MicroProfile OpenAPI annotations that an application developers can use in their code.  The following is a partial list of them. For a complete list of MicroProfile OpenAPI annotations, please refer to the please to the MicroProfile OpenAPI Specification document listed later in this chapter.
 
-Here are some code samples using annotations:
-
 .Subset of MicroProfile OpenAPI annotations
 [width="80%",cols="1,^2",options="header"]
 |=========================================================
@@ -77,7 +75,7 @@ Here are some code samples using annotations:
 
 |=========================================================
 
-Some usage examples of the MicroProfile OpenAPI annotations are:
+Some usage examples of the MicroProfile OpenAPI annotations follow:
 
 .Sample 1 - Simple operation description (abbreviated)
 [source,bash]
