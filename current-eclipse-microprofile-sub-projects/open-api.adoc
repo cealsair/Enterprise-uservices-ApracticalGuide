@@ -114,7 +114,30 @@ public Response getUserByName(
 {...}
 ----
 
-
+.Output for Sample 2
+[source,bash]
+----
+/user/\{username}:
+    get:
+       summary: Get user by user name
+       operationId: getUserByName
+       parameters:
+       - name: username
+         in: path
+         description: 'The name that needs to be fetched. Use user1 for testing. '
+         required: true
+         schema:
+           type: string
+       responses:
+         default:
+           description: The user
+           content:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/User'
+         400:
+           description: User not found
+----
 
 == Eclipse resources/GitHub coordinates for MicroProfile OpenAPI
 The MicroProfile OpenAPI project can be found at following location:
