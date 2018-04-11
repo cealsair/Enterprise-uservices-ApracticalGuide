@@ -100,7 +100,7 @@ public Response findPetsByStatus(...)
     operationId: findPetsByStatus
 ----
 
-.Sample 2 - Operation with different responses(abbreviated)
+.Sample 2 - Operation with different responses (abbreviated)
 [source,bash]
 ----
 @GET
@@ -117,7 +117,7 @@ public Response getUserByName(
 .Output for Sample 2
 [source,bash]
 ----
-/user/\{username}:
+/user/{username}:
     get:
        summary: Get user by user name
        operationId: getUserByName
@@ -138,6 +138,7 @@ public Response getUserByName(
          400:
            description: User not found
 ----
+
 
 == Eclipse resources/GitHub coordinates for MicroProfile OpenAPI
 The MicroProfile OpenAPI project can be found at following location:
