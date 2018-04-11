@@ -90,6 +90,16 @@ public Response findPetsByStatus(...)
 { ... }
 ----
 
+.Output for Sample 1
+[source,bash]
+----
+/pet/findByStatus:
+  get:
+    summary: Finds Pets by status
+    description: Multiple status values can be provided with comma separated strings
+    operationId: findPetsByStatus
+----
+
 
 == Eclipse resources/GitHub coordinates for MicroProfile OpenAPI
 The MicroProfile OpenAPI project can be found at following location:
