@@ -24,7 +24,7 @@ GET http://myHost:myPort/openapi
 Configuration of various parts of this specification is provided via the MicroProfile Config mechanism.There are various ways to inject these configuration values into an MP OpenAPI framework, including the default ConfigSource as well as custom ConfigSource.
 There are many configurable items. Here is a subset of them.  For a complete list, please refer to the MicroProfile OpenAPI Specification document listed later in this chapter.
 
-.Subset of configuration items
+.Subset of MicroProfile OpenAPI configuration items
 [width="80%",cols="1,^2",options="header"]
 |=========================================================
 |Configuration item |Description
@@ -52,6 +52,33 @@ The application developer then has a few choices:
 3. Use the Programming model to provide a bootstrap (or complete) OpenAPI model tree.
 
 Additionally, a Filter can be used to update the OpenAPI model after it has been built from the previously described documentation mechanisms.
+
+== Annotations
+
+There are many MicroProfile OpenAPI annotations that an application developers can use in their code.  The following is a partial list of them. For a complete list of MicroProfile OpenAPI annotations, please refer to the please to the MicroProfile OpenAPI Specification document listed later in this chapter.
+
+Here are some code samples using annotations:
+
+.Subset of MicroProfile OpenAPI annotations
+[width="80%",cols="1,^2",options="header"]
+|=========================================================
+|Annotation |Description
+
+|@APIResponse | Describes a single response from an API operation.
+
+|@APIResponse | Describes a single response from an API oper
+|@Content | Provides schema and examples for a particular media type.
+
+|@Operation | Describes an operation or typically a HTTP method against a specific path.
+
+|@Parameter | Describes a single operation parameter.
+
+|@Schema | Allows the definition of input and output data types.
+
+|=========================================================
+
+Some usage examples of the MicroProfile OpenAPI annotations are:
+
 
 == Eclipse resources/GitHub coordinates for MicroProfile OpenAPI
 The MicroProfile OpenAPI project can be found at following location:
