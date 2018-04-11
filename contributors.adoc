@@ -6,5 +6,6 @@ We would like to thank the following people that have contributed to the content
 - Pavol Loffay
 - Jeff Mesnil
 - Cesar Saavedra
+- Antoine Sabot-Durand
 - Scott Stark
 - Heiko Rupp
