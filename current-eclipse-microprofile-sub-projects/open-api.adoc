@@ -100,6 +100,21 @@ public Response findPetsByStatus(...)
     operationId: findPetsByStatus
 ----
 
+.Sample 2 - Operation with different responses(abbreviated)
+[source,bash]
+----
+@GET
+@Path("/{username}")
+@Operation(summary = "Get user by user name")  @APIResponse(description = "The user",
+             content = @Content(mediaType = "application/json",
+                                schema = @Schema(implementation = User.class))),
+@APIResponse(responseCode = "400", description = "User not found")
+public Response getUserByName(
+        @Parameter(description = "The name that needs to be fetched. Use user1 for  testing. ", required = true) @PathParam("username") String username)
+{...}
+----
+
+
 
 == Eclipse resources/GitHub coordinates for MicroProfile OpenAPI
 The MicroProfile OpenAPI project can be found at following location:
