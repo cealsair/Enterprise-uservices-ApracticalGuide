@@ -158,7 +158,7 @@ The OASModelReader interface allows you to bootstrap the OpenAPI model tree used
 mp.openapi.model.reader=com.mypackage.MyModelReader
 ----
 
-
+NOTE: Similar to static files, the model reader can be used to provide either complete or partial model trees. If providing a complete OpenAPI model tree, you should set the mp.openapi.scan.disable configuration to true. Oherwise this partial model will be used as the base model during the processing.
 
 == WildFly Swarm extension
 
