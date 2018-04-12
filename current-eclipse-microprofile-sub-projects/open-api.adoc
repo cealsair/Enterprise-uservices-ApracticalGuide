@@ -134,7 +134,7 @@ public Response getUserByName(
 
 Application developers can include a pre-generated OpenAPI document that was written, separately from the code, using an open source editor, like link:https://editor.swagger.io[Swagger Editor]. Static files, written before any code, is an approach often adopted by enterprises to lock-in the contract of the API, i.e. API-first development practice.
 
-
+NOTE: If a document is fully complete then the application developer will want to set the mp.openapi.scan.disable configuration property to true. If a document is partially complete, then the application developer will need to augment the OpenAPI snippet with annotations, programming model, or via the filter.
 
 == Programming model
 
