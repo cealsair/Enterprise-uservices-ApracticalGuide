@@ -150,6 +150,15 @@ The OASFactory is used to create all of the elements of an OpenAPI tree.
 OASFactory.createObject(Info.class).title("Airlines").description("Airlines APIs")  .version("1.0.0");
 ----
 
+The OASModelReader interface allows you to bootstrap the OpenAPI model tree used by the processing framework. To use it, simply create an implementation of this interface and register it using the mp.openapi.model.reader configuration key.
+
+.Sample META-INF/microprofile-config.properties
+[source,bash]
+----
+mp.openapi.model.reader=com.mypackage.MyModelReader
+----
+
+
 
 == WildFly Swarm extension
 
