@@ -130,6 +130,12 @@ public Response getUserByName(
            description: User not found
 ----
 
+== Static OpenAPI Files
+
+
+
+== Programming model
+
 
 == Eclipse resources/GitHub coordinates for MicroProfile OpenAPI
 The MicroProfile OpenAPI project can be found at following location:
