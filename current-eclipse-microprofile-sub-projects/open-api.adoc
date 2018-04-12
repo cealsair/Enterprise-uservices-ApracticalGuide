@@ -34,9 +34,9 @@ There are many configurable items. Here is a subset of them.  For a complete lis
 
 == Generating the OpenAPI document
 
-The MP OpenAPI specification requires the generation of a valid OpenAPI document from pure JAX-RS 2.0 applications. Application developers new to OpenAPI can just deploy their existing JAX-RS application into a MP OpenAPI vendor and check out the output from /openapi!
+The MP OpenAPI specification requires the generation of a valid OpenAPI document from pure JAX-RS 2.0 applications. If you are new to OpenAPI can just deploy their existing JAX-RS application into a MP OpenAPI vendor and check out the output from /openapi!
 
-The application developer then has a few choices:
+You then has a few choices:
 
 1. Augment those JAX-RS annotations with the OpenAPI Annotations.
 
@@ -48,7 +48,7 @@ Additionally, a Filter can be used to update the OpenAPI model after it has been
 
 == Annotations
 
-There are many MicroProfile OpenAPI annotations that an application developers can use in their code.  The following is a partial list of them. For a complete list of MicroProfile OpenAPI annotations, please refer to the please to the MicroProfile OpenAPI Specification document listed later in this chapter.
+There are many MicroProfile OpenAPI annotations that you can use in your code.  The following is a partial list of them. For a complete list of MicroProfile OpenAPI annotations, please refer to the please to the MicroProfile OpenAPI Specification document listed later in this chapter.
 
 .Subset of MicroProfile OpenAPI annotations
 [width="80%",cols="1,^2",options="header"]
@@ -132,13 +132,20 @@ public Response getUserByName(
 
 == Static OpenAPI Files
 
-Application developers can include a pre-generated OpenAPI document that was written, separately from the code, using an open source editor, like link:https://editor.swagger.io[Swagger Editor]. Static files, written before any code, is an approach often adopted by enterprises to lock-in the contract of the API, i.e. API-first development practice.
+You can include a pre-generated OpenAPI document that was written, separately from the code, using an open source editor, like link:https://editor.swagger.io[Swagger Editor]. Static files, written before any code, is an approach often adopted by enterprises to lock-in the contract of the API, i.e. API-first development practice.
 
 NOTE: If a document is fully complete then set the mp.openapi.scan.disable configuration property to true. If a document is partially complete, then you will need to augment the OpenAPI snippet with annotations, programming model, or via the filter.
 
+Vendors are required to fetch a single document named openapi with an extension of yml, yaml or json, inside the application module’s (i.e. WAR artifact) META-INF folder.
+
 == Programming model
 
+You are able to provide OpenAPI elements via Java POJOs. The complete set of models are found in the org.eclipse.microprofile.openapi.models package.
 
+
+== WildFly Swarm extension
+
+*Eric Wittman - do we have any specific extensions to mention here?*
 
 == Eclipse resources/GitHub coordinates for MicroProfile OpenAPI
 The MicroProfile OpenAPI project can be found at following location:
