@@ -162,6 +162,15 @@ NOTE: Similar to static files, the model reader can be used to provide either co
 
 == Using a Filter for updates
 
+To update or remove certain elements and fields of the OpenAPI document, you may use a filter. The link:https://github.com/eclipse/microprofile-open-api/blob/master/api/src/main/java/org/eclipse/microprofile/openapi/OASFilter.java[OASFilter] interface allows you to receive callbacks for various key OpenAPI elements. The interface has a default implementation for every method, which allows you to only override the methods you care about. To use it, simply create an implementation of this interface and register it using the mp.openapi.filter configuration key.
+
+.Sample META-INF/microprofile-config.properties
+[source,bash]
+----
+mp.openapi.filter=com.mypackage.MyFilter
+----
+
+
 
 
 == WildFly Swarm extension
