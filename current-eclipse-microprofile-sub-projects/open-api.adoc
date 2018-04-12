@@ -172,7 +172,7 @@ mp.openapi.filter=com.mypackage.MyFilter
 
 A registered filter is called once for each filtered element. For example, the method filterPathItem is called for each corresponding PathItem element in the model tree.
 
-== WildFly Swarm extension
+== WildFly Swarm extensions
 
 *Eric Wittman - do we have any specific extensions to mention here?*
 
