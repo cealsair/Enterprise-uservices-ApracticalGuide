@@ -140,7 +140,7 @@ Vendors are required to fetch a single document named openapi with an extension 
 
 == Programming model
 
-You are able to provide OpenAPI elements via Java POJOs. The complete set of models are found in the org.eclipse.microprofile.openapi.models package.
+You are able to provide OpenAPI elements via Java POJOs. The complete set of models are found in the link:https://github.com/eclipse/microprofile-open-api/tree/master/api/src/main/java/org/eclipse/microprofile/openapi/models[org.eclipse.microprofile.openapi.models] package.
 
 
 == WildFly Swarm extension
