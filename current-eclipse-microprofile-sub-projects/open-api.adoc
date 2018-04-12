@@ -142,6 +142,14 @@ Vendors are required to fetch a single document named openapi with an extension 
 
 You are able to provide OpenAPI elements via Java POJOs. The complete set of models are found in the link:https://github.com/eclipse/microprofile-open-api/tree/master/api/src/main/java/org/eclipse/microprofile/openapi/models[org.eclipse.microprofile.openapi.models] package.
 
+The OASFactory is used to create all of the elements of an OpenAPI tree.
+
+.For example,
+[source,bash]
+----
+OASFactory.createObject(Info.class).title("Airlines").description("Airlines APIs")  .version("1.0.0");
+----
+
 
 == WildFly Swarm extension
 
