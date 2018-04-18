@@ -15,7 +15,7 @@ Most of the plumbing is performed by the application framework that implements t
 To do this, you need to implement a Health Check procedure, like the following:
 
 [source, java]
-```
+----
 @Health
 @ApplicationScoped
 public class MyHealthCheck implements HealthCheck {
@@ -27,4 +27,65 @@ public class MyHealthCheck implements HealthCheck {
           .build();
     }
 }
-```
+----
+
+The CDI managed health checks are discovered and registered automatically my the application runtime. The runtime exposes an HTTP entry point `/health`, used by the cloud platform to poke into your application to determine it's state:
+
+[source, json]
+----
+curl http://localhost:8080/health
+
+{
+    "checks": [
+        {
+            "name": "my-check",
+            "state": "UP"
+        }
+    ],
+    "outcome": "UP"
+}
+----
+
+== Integration with the cloud platform
+
+Most cloud-platform support both TCP and HTTP based checks. To integrate with the cloud platform simply means to configure your cloud deployment to point to the HTTP entry point `/health` on the node that hosts this application.
+
+The cloud platform will invoke on the HTTP entry point and all checks that are registered will be invoked and the sum of individual checks determines the overall `outcome`. 
+
+Usually the response payload is ignored by the cloud platform and it only looks at the HTTP status code to determine the liveness or readiness of your application. A successful outcome `UP` will be mapped to `200` and `DOWN` to `503`. 
+
+== Human operators
+
+The primary use case for the JSON response payload is to provide a way for operators to investigate the system. In support of this, health checks also allow for additional meta data to be attached to a health check response:
+
+[source, java]
+----
+[...]
+return HealthCheckResponse
+            .named("my-check")
+            .withData("free-heap", "64mb")
+            .up()
+            .build();
+[...]
+----
+
+Here additional data ('free-heap') is provided, that will be part of the response payload:
+
+[source,json]
+----
+{
+    "checks": [
+        {
+            "name": "my-check",
+            "state": "UP",
+            "data": {
+                "free-heap": "64mb"
+            }
+        }
+    ],
+    "outcome": "UP"
+}
+----
+
+
+
