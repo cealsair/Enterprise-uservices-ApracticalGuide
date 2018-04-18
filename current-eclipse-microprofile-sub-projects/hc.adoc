@@ -56,7 +56,7 @@ Usually the response payload is ignored by the cloud platform and it only looks 
 
 == Human operators
 
-The primary use case for the JSON response payload is to provide a way for operators to investigate the system. In support of this, health checks also allow for additional meta data to be attached to a health check response:
+The primary use case for the JSON response payload is to provide a way for operators to investigate the application state. To support this, health checks allow for additional meta data to be attached to a health check response:
 
 [source, java]
 ----
