@@ -1,6 +1,6 @@
 = Type safe Rest Client
 
-The Microprofile Rest Client provides an API for type-safe invocation on Rest endpoints. It is used from applications to do remote invocations on other services.
+The Microprofile Rest Client provides an API for type-safe invocation on Rest endpoints. It can be used from applications to perform remote invocations on other services.
 
 It leverages JAX-RS annotations on Java interfaces to describe the actual contract with remotes services. These interfaces are then used to create  client proxies that hide much of the underlying HTTP communication.  
 
