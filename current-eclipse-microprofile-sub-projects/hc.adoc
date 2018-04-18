@@ -29,7 +29,7 @@ public class MyHealthCheck implements HealthCheck {
 }
 ----
 
-The CDI managed health checks are discovered and registered automatically by the application runtime. The runtime exposes an HTTP entry point `/health`, used by the cloud platform to poke into your application to determine it's state:
+The CDI managed health checks are discovered and registered automatically by the application runtime. The runtime automatically exposes an HTTP entry point `/health`, used by the cloud platform to poke into your application to determine it's state:
 
 [source, json]
 ----
