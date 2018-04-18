@@ -48,7 +48,7 @@ curl http://localhost:8080/health
 
 == Integration with the cloud platform
 
-Most cloud-platform support both TCP and HTTP based checks. To integrate with the cloud platform simply means to configure your cloud deployment to point to the HTTP entry point `/health` on the node that hosts this application.
+Most cloud-platform support both TCP and HTTP based checks. To integrate with the cloud platform you need to configure your cloud deployment to point to the HTTP entry point `/health` on the node that hosts your application.
 
 The cloud platform will invoke on the HTTP entry point and all checks that are registered will be invoked and the sum of individual checks determines the overall `outcome`. 
 
