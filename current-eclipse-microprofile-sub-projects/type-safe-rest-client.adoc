@@ -1,7 +1,41 @@
 = Type safe Rest Client
 
-What is the business problem that this sub-project addresses.
-How does this sub-project go about addressing it.
-High-level description of sub-project API.
-Snippet(s) of sample code that implements sub-project.
-Eclipse resources/GitHub coordinates for sub-project.
+The Microprofile Rest Client provides an API for type-safe invocation on Rest endpoints. It is used from applications to do remote invocations on other services.
+
+It leverages JAX-RS annotations on Java interfaces to describe the actual contract with remotes services. These interfaces are then used to create  client proxies that hide much of the underlying HTTP communication.  
+
+== Rest Client API
+
+Two core concept dominate the rest client API: The interface used to describe the contract with a remote service and the API to generate the client proxies. Let's look at the client interface first:
+
+[source, java]
+----
+import javax.json.JsonObject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+@Path("/")
+public interface IPService {
+    @GET
+    JsonObject getIP();
+}
+----
+
+This is a fairly simple contract with a remote service that echos your IP address in form of 
+
+[source,json]
+----
+{"ip":"88.64.209.229"}
+----
+
+The JAX-RS annotations `@Path` and `@GET` are used to describe the actual HTTP bindings underneath. In out example an invocation to `IPService#getIP()` will be translated internally to an HTTP GET request on `/` resource of a given URL.
+
+The client proxy for you to use, will be created using the `RestClientBuilder` which is part of the main API:
+
+[source,java]
+----
+IPService svc = RestClientBuilder.newBuilder()
+                .baseUrl(url)
+                .build(IPService.class);
+JsonObject response = svc.getIP();                
+----
