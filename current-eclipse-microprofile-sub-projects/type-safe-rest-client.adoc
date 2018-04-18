@@ -28,7 +28,7 @@ This is a fairly simple contract with a remote service that echos your IP addres
 {"ip":"88.64.209.229"}
 ----
 
-The JAX-RS annotations `@Path` and `@GET` are used to describe the actual HTTP bindings underneath. In out example an invocation to `IPService#getIP()` will be translated internally to an HTTP GET request on `/` resource of a given URL.
+The JAX-RS annotations `@Path` and `@GET` are used to describe the actual HTTP bindings underneath. In our example an invocation to `IPService#getIP()` will result in a HTTP GET request to a `/` resource under a given URL.
 
 The client proxy for you to use, will be created using the `RestClientBuilder` which is part of the main API:
 
