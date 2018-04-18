@@ -43,7 +43,10 @@ JsonObject response = svc.getIP();
 
 You use an URL and the client interface to construct a client proxy through `RestClientBuilder`.  The resulting instance of `IPService` can be used to invoke on the service and all HTTP communication will happen underneath.
 
-Payload bindings to JSON-P types are supported out-of-the-box, but you can also introduce custom types if needed.
+Payload bindings to JSON-P, `javax.ws.rs.core.Response` and common simple types are supported out-of-the-box, but you can also introduce custom types if needed.
 
 == Using custom types
+
+The default types take you a long way, but it might be useful or needed to work with custom types. The Rest Client API, building on JAX-RS, allows to use custom types given that a `MessageBodyReader` and `MessageBodyWriter` for that type exist.
+
 
