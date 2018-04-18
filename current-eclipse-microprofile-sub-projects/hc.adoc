@@ -88,4 +88,6 @@ Here additional data ('free-heap') is provided, that will be part of the respons
 ----
 
 
+== Eclipse resources/GitHub coordinates for MP-Health.
+The MP-Health project source code can be found at the following location: https://github.com/eclipse/microprofile-health
 
