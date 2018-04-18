@@ -50,7 +50,7 @@ curl http://localhost:8080/health
 
 Most cloud-platform support both TCP and HTTP based checks. To integrate with the cloud platform you need to configure your cloud deployment to point to the HTTP entry point `/health` on the node that hosts your application.
 
-The cloud platform will invoke on the HTTP entry point and all checks that are registered will be invoked and the sum of individual checks determines the overall `outcome`. 
+The cloud platform will invoke on the HTTP entry point and all checks that are registered will be performed and the sum of individual checks determines the overall `outcome`. 
 
 Usually the response payload is ignored by the cloud platform and it only looks at the HTTP status code to determine the liveness or readiness of your application. A successful outcome `UP` will be mapped to `200` and `DOWN` to `503`. 
 
@@ -69,7 +69,7 @@ return HealthCheckResponse
 [...]
 ----
 
-Here additional data ('free-heap') is provided, that will be part of the response payload:
+For instance, if additional information about 'free-heap' is provided, it will become part of the response payload:
 
 [source,json]
 ----
