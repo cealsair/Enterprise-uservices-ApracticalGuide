@@ -106,3 +106,6 @@ IPService svc =
 ----
 
 
+== Eclipse resources/GitHub coordinates for MP-Rest Client.
+The rest client project source code can be found at the following location: https://github.com/eclipse/microprofile-rest-client
+
