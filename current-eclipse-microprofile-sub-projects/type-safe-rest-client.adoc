@@ -47,7 +47,7 @@ Payload bindings to JSON-P, `javax.ws.rs.core.Response` and common simple types 
 
 == Using custom types
 
-The default types take you a long way, but it might be useful or needed to work with custom types. The Rest Client API, building on JAX-RS, allows to use custom types given that a `MessageBodyReader` and `MessageBodyWriter` for that type exist.
+The default types take you a long way, but it might be useful or needed to work with custom types. The Rest Client API, building on JAX-RS, allows to use custom types – given that a `MessageBodyReader` and `MessageBodyWriter` for that type exists.
 
 The following is an example where we explicitly create a `MessageBodyReader` for a custom type `IPService.IP`:
 
