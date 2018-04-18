@@ -1,3 +1,4 @@
 = Foreword
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+Application development no longer consists of using a single high-level programming language with a compiler that runs on your favorite operating system. Nowadays, there exists a myriad of languages, frameworks, proprietary and open source software and tools, underlying infrastructures, and development methodologies programmers need to learn to develop modern applications. In this age of cloud, containers, microservices, reactive programming, 12-factor applications, serverless, miniservices, etc., a developer now has the option to choose the right tool to solve the right task.
+
