@@ -6,7 +6,7 @@ It leverages JAX-RS annotations on Java interfaces to describe the actual contra
 
 == Rest Client API
 
-Two core concept dominate the rest client API: The interface used to describe the contract with a remote service and the API to generate the client proxies. Let's look at the client interface first:
+Two concepts are central to the rest client API: The client interface used to describe the contract with a remote service and the API to construct a client proxy. Let's look at the client interface first:
 
 [source, java]
 ----
