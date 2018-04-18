@@ -49,4 +49,60 @@ Payload bindings to JSON-P, `javax.ws.rs.core.Response` and common simple types 
 
 The default types take you a long way, but it might be useful or needed to work with custom types. The Rest Client API, building on JAX-RS, allows to use custom types given that a `MessageBodyReader` and `MessageBodyWriter` for that type exist.
 
+The following is an example where we explicitly create a `MessageBodyReader` for a custom type `IPService.IP`:
+
+[source,java]
+----
+class IPService.IP {
+    String address;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+}
+----
+
+The corresponding reader takes the JSON payload and creates an instance of `IP`:
+
+[source,java]
+----
+public class MyReader implements MessageBodyReader<IPService.IP> {
+    @Override
+    public boolean isReadable(Class<?> aClass, Type type, Annotation[] annotations, MediaType mediaType) {
+        return true;
+    }
+
+    @Override
+    public IPService.IP readFrom(
+            Class<IPService.IP> aClass, Type type, Annotation[] annotations,
+            MediaType mediaType, MultivaluedMap<String, String> multivaluedMap,
+            InputStream inputStream) throws IOException, WebApplicationException {
+
+        JsonReader reader = Json.createReader(inputStream);
+        String ip = reader.readObject().getJsonString("ip").getString();
+        IPService.IP payload = new IPService.IP();
+        payload.setAddress(ip);
+        return payload;
+    }
+}
+----
+
+To make use of that reader, we register it upon construction of the client proxy:
+
+[source,java]
+----
+[...]
+IPService svc = 
+    RestClientBuilder.newBuilder()
+	.baseUrl(url)
+	.register(MyReader.class)
+	.build(IPService.class);
+    IPService.IP ip = svc.getIPTyped();
+[...]
+----
+
 
