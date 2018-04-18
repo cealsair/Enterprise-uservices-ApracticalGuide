@@ -21,7 +21,7 @@ public interface IPService {
 }
 ----
 
-This is a fairly simple contract with a remote service that echos your IP address in form of 
+This is a fairly simple contract with a remote service that echos your IP address in the form of: 
 
 [source,json]
 ----
