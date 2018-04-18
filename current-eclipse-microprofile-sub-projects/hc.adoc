@@ -1,4 +1,4 @@
-= Health Checks
+= Health Check
 
 In cloud-native architectures health checks are used to determine if a computing node (i.e. your application within a container) is alive and ready to perform work. 
 
@@ -8,6 +8,23 @@ _Liveness_ on the other hand, describes the state of a running container. Can it
 
 Health checks are an essential contract with the orchestration framework and scheduler of the cloud platform. The checks procedures are provided by the application (i.e. you decide how to respond to the liveness and readiness checks) and the platform uses these to continuously ensure the availability of your application or service.
 
-== The Microprofile Health Check API
+== The Health Check API
 
+Most of the plumbing is performed by the application framework that implements the Microprofile Health Check specification. Your part is do decide how liveness or readiness are expressed. 
 
+To do this, you need to implement a Health Check procedure, like the following:
+
+[source, java]
+```
+@Health
+@ApplicationScoped
+public class MyHealthCheck implements HealthCheck {
+    @Override
+    public HealthCheckResponse call() {
+        return HealthCheckResponse
+          .named("my-check")
+          .up()
+          .build();
+    }
+}
+```
