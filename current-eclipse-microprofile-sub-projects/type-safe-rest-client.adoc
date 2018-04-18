@@ -34,8 +34,16 @@ The client proxy for you to use, will be created using the `RestClientBuilder` w
 
 [source,java]
 ----
+URL url = new URL("http://ip.jsontest.com/");
 IPService svc = RestClientBuilder.newBuilder()
                 .baseUrl(url)
                 .build(IPService.class);
 JsonObject response = svc.getIP();                
 ----
+
+You use an URL and the client interface to construct a client proxy through `RestClientBuilder`.  The resulting instance of `IPService` can be used to invoke on the service and all HTTP communication will happen underneath.
+
+Payload bindings to `javax.json` types are supported by all implementations, but you can also introduce custom types if needed.
+
+== Using custom payload types
+
