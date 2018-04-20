@@ -4,5 +4,5 @@ Application development no longer consists of using a single high-level programm
 
 Eclipse MicroProfile is a community-driven open-source specification for enterprise Java microservices with many implementations in the market. MicroProfile is one of the tools developers can leverage to solve problems and implement solutions designed to run enterprise applications with reliability, availability, scalability and performance (RASP) capabilities. In addition, developers familiar with enterprise Java frameworks, such as Java EE, will find in MicroProfile a natural progression of enterprise Java into the world of cloud-native application development.
 
-This book provides a high-level introduction to Eclipse MicroProfile.
+With the recent move of Java EE to the Eclipse Foundation under the new name Jakarta EE, MicroProfile will play a very important role in the future of enterprise Java because of its synergy with Jakarta EE and the potential ways it can influence it.
 
