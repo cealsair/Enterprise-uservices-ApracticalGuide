@@ -1,8 +1,5 @@
 = Config
 
-NOTE: What is the business problem that this sub-project addresses.
-How does this sub-project go about addressing it.
-
 Every application needs some external configuration to adapt its behaviour to
 the running environment.
 It can range from the HTTP endpoints that the application must connect to or
@@ -28,7 +25,7 @@ application to get the values of the configuration parameters.
 * It defines a SPI (Service Provider Interface) to let other projects
 (or the Java application itself) provides the sources of configuration parameters.
 
-Implementations of the MicroProfile Config must provide default `ConfigSource`
+Implementations of the MicroProfile Config must provide default `ConfigSource`s
 that are always available to the application.
 
 == Reading Configuration
@@ -36,8 +33,8 @@ that are always available to the application.
 The MicroProfile Config specification defines two objects to read the value
 of configuration parameters:
 
-* `Config` object
-* `@ConfigProperty` annotation
+* The `Config` object to programmatically access the configuration values
+* The `@ConfigProperty` annotation to inject the configuration values using CDI
 
 === Config
 
@@ -93,9 +90,42 @@ The `Config` interface also defines methods to list config sources and all the p
 of configuration provided by the `Config` object.
 * `getConfigSources()` returns all the source of configurations provided by the `Config` object
 
-=== ConfigProperty
+=== @ConfigProperty
 
-TODO
+The `@ConfigProperty` annotation can be used to inject configuration values in Java fields or method
+parameters using CDI.
+
+[source,java]
+----
+@Inject
+@ConfigProperty(name="my.url")
+private URL myURL;
+----
+
+The `@ConfigProperty` annotation can have a `defaultValue` that is used to configure the field if
+the configuration property is not found in the underlying `Config`.
+
+
+[source,java]
+----
+@Inject
+@ConfigProperty(name="my.url", defaultValue="http://localhost/")
+private URL myURL;
+----
+
+If the `defaultValue` is not set and no property is found, the application will throw a DeploymentException
+as it can not be properly configured.
+
+It is possible to use `Optional` if a configuration property might not be present.
+
+[source,java]
+----
+@Inject
+@ConfigProperty(name="my.url")
+private Optional<URL> someUrl; // will be set to Optional.empty if the
+                               // property `my.url` can not be found
+----
+
 
 == Provide Sources of Configuration
 
@@ -144,39 +174,93 @@ and use the environment variable `APP_AUTH_URL` to configure it.
 
 === Custom ConfigSources
 
-Explain how to define Custom ConfigSource or ConfigSourceProvider
+It is possible to provide additional source of configurations in your
+application that will be automatically added by the MicroProfile
+Config implementation.
 
- * Service loader + `/META-INF/services/org.eclipse.microprofile.config.spi.ConfigSource`
- * Service loader + `/META-INF/services/org.eclipse.microprofile.config.spi.ConfigSourceProvider`
+You need to define a subclass of `org.eclipse.microprofile.config.spi.ConfigSource`
+and add its name to the  `/META-INF/services/org.eclipse.microprofile.config.spi.ConfigSource`
+file and put that file in your application archive.
 
 == Converters
 
-Explains the concept of Converters
+The MicroProfile Config will read Java `String` objects from its `ConfigSource`.
+However, it provides facilities to _convert_ these Strings to more specific types in
+your application.
+
+For example, the `myUrl` field we described above is a `URL` object.
+The corresponding property `my.url` is read as a `String` and then converted to a `URL` object before
+it is injected.
+
+If the application uses the `Config` object, the MicroProfile Config implementation
+will also convert the `String` to the type passed as the second argument of the `getValue`
+and `getOptionalValue` method.
 
 === Built-in Converters
 
-Describes the built-in Converters
-Array converters
+The MicroProfile Config implementations provides built-in converters for the primitive types
+(`boolean`, `int`, `long`, `byte`, `float`, `double`) and their corresponding Java types (e.g.
+  `Integer`).
+
+It also provides support for arrays in the property value using the `,` as the item separator.
+If the `,` must be part of an item, it must be escaped with a `\`.
+
+[source,java]
+----
+private String[] pets = config.getValue("myPets", String[].class);
+----
+
+If the value of the property `myPets` is `dog,cat,dog\\,cat`, the elements of the array stores in
+`pets` would be `{"dog", "cat", "dog,cat"}``
 
 === Automatic Converters
 
-* public constructor with String parameter
-* static `parse(CharSequence)` and `valueOf(String)` methods
+The MicroProfile Config also defines _automatic converters_. If they have no knowledge of a Converter
+for a given Java type, it will attempt to convert a `String` to it using three different approaches:
+
+* the Java type has public constructor with a `String` parameter, or
+* it has a `public static valueOf(String)` method, or
+* it has a `public static parse(String)` method
+
+That's how `my.url` property was converted from a `String` to a `URL` since the `java.net.URL`
+type has `public URL(String)` constructor.
 
 === Custom Converters
 
-Explain how to define custom Converters
+If you application defines Java types that does not provides any of these three approaches,
+the MicroProfile Config can still provider conversion using custom Converters that extends the
+`org.eclipse.microprofile.config.spi.Converter` interface.
 
-* Service loader + `/META-INF/services/org.eclipse.microprofile.config.spi.Converter`
+[source,java]
+----
+public interface Converter<T> {
+    /**
+     * Configure the string value to a specified type
+     * @param value the string representation of a property value.
+     * @return the converted value or null
+     *
+     * @throws IllegalArgumentException if the value cannot be converted to the specified type.
+     */
+    T convert(String value);
+}
+----
 
-=== Building your own Config
-
-* `ConfigBuilder` SPI
-* `ConfigProviderResolver.getBuilder()`
+You have to write a subclass of `org.eclipse.microprofile.config.spi.Converter`, add
+its name to the `/META-INF/services/org.eclipse.microprofile.config.spi.Converter`
+file and put that file in your application archive.
 
 === Summary
 
-TODO
+The Config specification provides a uniform way to configure Java applications regardless
+of the deployment environment (local JVM, testing environment for continuous integration,
+   container platform for production deployment, etc.).
+
+In this chapter, we have seen how to use MicroProfile Config to configure MicroProfile applications.
+The sources of the configuration can be many, some values coming from properties files,
+others from System properties or environment variables but they are all accessed in
+a consistent way from the Java application.
+The values will likely differ according to the deployment environment (for example,
+  testing and production) but that is transparent to the application code.
 
 === Resources
 
