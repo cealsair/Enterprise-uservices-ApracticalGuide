@@ -19,7 +19,6 @@
 ** link:current-eclipse-microprofile-sub-projects/open-tracing.adoc[OpenTracing]
 ** link:current-eclipse-microprofile-sub-projects/open-api.adoc[OpenAPI]
 ** link:current-eclipse-microprofile-sub-projects/type-safe-rest-client.adoc[Type safe Rest Client]
-* link:deploying-eclipse-microprofile-to-a-service-mesh.adoc[Deploying Eclipse MicroProfile to a Service Mesh]
 * link:implementations-of-eclipse-microprofile.adoc[Implementations of Eclipse MicroProfile]
 * link:a-peek-into-the-future.adoc[A peek into the future]
 * link:appendix-a.adoc[Appendix A]
