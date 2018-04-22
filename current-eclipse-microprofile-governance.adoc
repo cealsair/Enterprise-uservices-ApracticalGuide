@@ -6,8 +6,29 @@ Eclipse MicroProfile has a bi-weekly Hangout meeting/call, which is led by the M
 
 The main means of community communication, discussion and debate is the link:https://groups.google.com/forum/#!forum/microprofile[Eclipse MicroProfile Google Group]. You can use your favorite web browser to read/post/answer/start forum messages in the Google Group. You can also use the Group's link:microprofile@googlegroups.com[email] to start new forum messages. Anybody can start new forum threads to discuss topics, such as potential new functionality to be added to MicroProfile. After the community discusses a new idea at length, and it's been determined that it is worth furthering the debate, the community decides to create a working sub-group and a lead, who's usually a subject-matter expert in the topic at hand, is designated. The sub-group will establish a recurring weekly or bi-weekly meeting, which is entered in the  link:https://calendar.google.com/calendar/embed?src=gbnbc373ga40n0tvbl88nkc3r4%40group.calendar.google.com[MicroProfile Google Calendar]. Anybody can attend these meetings but there's usually a core number of people that serves as the subject-matter experts that participate in these calls. After a few meetings, the sub-group decides whether or not the new functionality should become a MicroProfile API/sub-project. Another resource that the MicroProfile community offers to try out new ideas is the MicroProfile link:https://github.com/eclipse/microprofile-sandbox[sandbox].  The sandbox repository is for incubating ideas and code examples that will eventually turn into a separate repository towards a new specification. Anybody can open a pull request and use the sandbox for the new idea code and documentation, which can be used as part of the discussion in the community Google Group, the MicroProfile Hangout calls, or sub-group meetings. If you need to accept and merge a pull request, or feel that your idea is mature and deserves a separate repository, contact one of the MicroProfile project link:https://projects.eclipse.org/projects/technology.microprofile/who[committers] for guidance.
 
-Eclipse MicroProfile sub-projects are (with the project leads listed):
-INSERT TABLE
-PROJ NAME - PROJ LEAD
+Eclipse MicroProfile APIs/sub-projects are (with the project leads listed):
 
-Some of these non-Java-EE APIs may be submitted as Java Specification Requests (JSRs) for inclusion into the Java EE standard. Eclipse MicroProfile follows a time-boxed rapid incremental release schedule. Lastly, one key aspect of Eclipse MicroProfile is that it is managed and governed by the community and not a single vendor.
+.MicroProfile APIs/sub-projects and their leads
+[width="80%",cols="1,^2",options="header"]
+|=========================================================
+|MicroProfile API/sub-project name |Sub-project lead
+
+|Config | Emily Jiang & Mark Struberg
+
+|Fault Tolerance | Emily Jiang
+
+|Health Check | Antoine Sabot-Durand
+
+|JWT Propagation | Scott Stark
+
+|Metrics | Heiko Rupp
+
+|OpenAPI | Arthur De Magalhaes
+
+|OpenTracing | Pavol Loffay
+
+|Rest Client | John D. Ament & Andy McCright
+
+|=========================================================
+
+Eclipse MicroProfile follows a time-boxed rapid incremental release schedule. Lastly, one key aspect of Eclipse MicroProfile is that it is managed and governed by the community and not a single vendor.
