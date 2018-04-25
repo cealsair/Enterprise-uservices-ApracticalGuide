@@ -8,6 +8,24 @@ On August 24, 2018, Jakarta EE was officially announced by the Eclipse Foundatio
 
 Just as microservices and cloud-native Java are complementary, so are Eclipse MicroProfile and Jakarta EE. They differ as follows:
 
+.MicroProfile and Jakarta EE differences
+[width="80%",cols="3,^2,^2",options="header"]
+|=========================================================
+|Characteristic |MicroProfile |Jakarta EE
+
+|Speed | Fast paced | Agile
+
+|Focus | Microservices | Cloud-native
+
+|Goal | Innovation | Standards
+
+|Governance | Loose | Structured
+
+|Modus Operandi | Experimentative | Well proven
+
+|Approach | Flexible | Rigorous
+
+|=========================================================
 
 At the moment, these two are separate projects under the Eclipse Foundation. However, it is clear to both projects that there will be some kind of alignment in the near future. The different scenarios for this alignment from the governance perspective are:
 
