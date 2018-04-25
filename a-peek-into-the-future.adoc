@@ -4,4 +4,14 @@ As of the writing of this eBook, ideas for potential new Eclipse MicroProfile AP
 
 Some of the MicroProfile APIs consist of leveraging existing technology, like CDI, JSON-P, and JAX-RS. Along those lines, there are plans to include JSON-B, introduced in Java EE 8, in the upcoming MicroProfile 2.0 release, tentatively scheduled for May 2018.
 
-On August 24, 2018, Jakarta EE was officially announced and the Eclipse Foundation has declared it to be the future of cloud-native Java.
+On August 24, 2018, Jakarta EE was officially announced by the Eclipse Foundation, which has declared Jakarta EE to be the future of cloud-native Java. In September 2017, Oracle announced that they would donate Java EE technologies to the Eclipse Foundation. Jakarta EE technology starting point is the donated Java EE technology from Oracle. The Jakarta EE Working Group link:https://www.eclipse.org/org/workinggroups/jakarta_ee_charter.php[Charter] states "the Jakarta EE working group will drive the evolution and broad adoption of technologies derived from or related to the Eclipse Enterprise for Java (EE4J) project. Eclipse Enterprise for Java (EE4J) is an open source initiative to create technical specifications, implementations of those APIs, and technology compatibility kits for Java runtimes that enable development, deployment, and management of server-side and cloud-native applications. EE4J is based on the JavaTM Platform, Enterprise Edition (Java EE) standards, and uses Java EE 8 as the baseline for creating new specifications and implementations." During calendar 2018, the Eclipse Foundation plans to certify Eclipse Glassfish 5.1 for Java EE 8 and, later the same year, for Jakarta EE 8. All new development will be done under Jakarta EE brand moving forward from this point.
+
+Just as microservices and cloud-native Java are complementary, so are Eclipse MicroProfile and Jakarta EE. They differ as follows:
+
+
+At the moment, these two are separate projects under the Eclipse Foundation. However, it is clear to both projects that there will be some kind of alignment in the near future. The different scenarios for this alignment from the governance perspective are:
+
+- Eclipse MicroProfile is moved under the EE4J umbrella initiative and governed by the Jakarta EE Working Group
+- Things stay as they are now
+
+No matter how things end up, both projects can benefit from each other. The benefit that MicroProfile provides to Jakarta EE is the rapid innovation and "proofing" of new microservices APIs that can then be promoted to the Jakarta EE standards. Likewise, Jakarta EE serves as a stable, reliable, standards-based platform where MicroProfile APIs can continue to be used. But customers also benefit from these two projects. For those that are early adopters, they have MicroProfile, and for those that are risk averse, they have Jakarta EE. 
