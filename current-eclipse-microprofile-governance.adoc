@@ -1,6 +1,6 @@
 = Current Eclipse MicroProfile Governance
 
-Eclipse MicroProfile is a community-driven open source project made up of individuals, vendors, and organizations. Instead of a single vendor driving the project, it is the community, under the stewardship of the Eclipse Foundation, that drives it.
+Eclipse MicroProfile is a community-driven open source project made up of individuals, vendors, and organizations. MicroProfile is transparent in its operations and decision-making processes, which are intended to be very lightweight. Governance focuses on creating and evolving specifications in a collaborative manner.
 
 Eclipse MicroProfile has a bi-weekly Hangout meeting/call, which is led by the MicroProfile project leads, who currently are John Clingan (Red Hat) and Kevin Sutter (IBM). The Hangout serves as a forum where topics, brought up by the community, are discussed and decisions are made, from sub-project statuses and release contents, to release dates and sub-project creation approvals.
 
