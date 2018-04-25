@@ -1,7 +1,151 @@
 = Fault Tolerance
 
-What is the business problem that this sub-project addresses.
-How does this sub-project go about addressing it.
-High-level description of sub-project API.
-Snippet(s) of sample code that implements sub-project.
-Eclipse resources/GitHub coordinates for sub-project.
+Eclipse MicroProfile Fault Tolerance provides a standard and easy way to add resiliency to your microservice or other Java EE development.
+
+Fault Tolerance is based on Contexts and Dependency Injection (CDI) and more precisely on the CDI interceptor implementation. It also relies on the MicroProfile Config specification to allow external configuration for Fault Tolerance policies.
+
+The main idea of the spec is to decouple business logic from Fault Tolerance boilerplate code. To achieve that, the spec defines interceptor binding annotations to apply Fault Tolerance policies on a method execution or on a class (in that case all class methods have the same policy).
+
+Policies included in the Fault Tolerance specification are the following:
+
+* Timeout: applied with `@Timeout` annotation. It adds a timeout to the current operation.
+* Retry: applied with `@Retry` annotation. It adds retry behavior and allows its configuration on the current operation.
+* Fallback: applied with `@Fallback` annotation. It defines the code to execute, should the current operation fail.
+* Bulkhead: applied with `@Bulkhead` annotation. It isolates failures in the current operation to preserve execution of other operations.
+* Circuit Breaker: applied with `@CircuitBreaker` annotation. It provides an automatic fast failing execution to prevent overloading the system.
+* Asynchronous: applied with `@Asynchronous` annotation. It makes the current operation asynchronous (i.e. code will be invoked asynchronously).
+
+Applying one or more of these policies is as easy as adding the required annotations on the method (or the class) for which you'd like to have these policies enabled. So, using Fault Tolerance is rather simple. But this simplicity doesn't prevent flexibility thanks to all the configuration parameters available for each policy.
+
+Right now the following vendors are providing an implementation for the specification.
+
+* Red Hat in WildFly Swarm
+* IBM in WebSphere Liberty
+* Payara in Payara Server
+* Apache Safeguard for Hammock and TomEE
+* KumuluzEE for KumuluzEE framework
+
+
+== MicroProfile Fault Tolerance in Action
+
+As we saw above, fault tolerance specification provides a set of annotations that you have to apply on a class or method to enforce Fault Tolerance policies. This said, you have to keep in mind that these annotations are interceptors binding and thus are only usable on CDI beans, so be careful to define your class as CDI beans before applying Fault Tolerance annotations on them or their methods.
+
+In the following sections you'll find usage examples for each Fault Tolerance annotation.
+
+
+=== `@Asynchronous` policy
+Making an operation asynchronous is as simple as:
+
+[source, java]
+----
+@Asynchronous
+public Future<Connection> service() throws InterruptedException {
+    Connection conn = new Connection() {
+      {
+        Thread.sleep(1000);
+      }
+    @Override
+    public String getData() {
+      return "service DATA";
+    }
+  };
+  return CompletableFuture.completedFuture(conn);
+}
+----
+
+The only constraint is to have the @Asynchronous method returning a Future otherwise the implementation should throw an exception.
+
+=== `@Retry` policy
+Should the operation fail you can apply the Retry policy to have the operation invoked again. The @Retry annotation can be used on class or method level like this:
+
+[source, java]
+----
+@Retry(maxRetries = 5, maxDuration= 1000, retryOn = {IOException.class})
+public void operationToRetry() {
+    ...
+}
+----
+
+In the example above, the operation should be retried a maximum 5 times only on IOException. If the total duration of all retries lasts more than 1000 ms the operation will be aborted.
+
+=== `@Fallback` policy
+This annotation can only be applied on a method, annotating a class will give an unexpected result:
+
+[source, java]
+----
+@Retry(maxRetries = 2)
+@Fallback(StringFallbackHandler.class)
+public String shouldFallback() {
+	 ...
+}
+----
+
+Fallback method is called after the number of retries is reached. In the example above, the method will be retried twice in case of an error, and then the fallback will be used to invoke another piece of code.
+
+Fallback code can be defined by class implementing FallbackHandler interface (see the code above), or by a method in the current bean.
+
+=== `@Timeout` policy
+This annotation could be applied on class or method to make sure that an operation doesn't last forever.
+
+[source, java]
+----
+@Timeout(200)
+public void operationCouldTimeout() {
+    ...
+}
+----
+
+In the example above the operation will be stopped should it last more than 200 ms.
+
+=== `@CircuitBreaker` policy
+
+The annotation can be applied on class or method. The circuit breaker pattern was introduced by Martin Fowler to protect execution of an operation by making it fail fast in case of a dysfunction.
+
+[source, java]
+----
+@CircuitBreaker(requestVolumeThreshold = 4, failureRatio=0.75, delay = 1000)
+public void operationCouldBeShortCircuited(){
+  ...
+}
+----
+
+In the above example, the method applies the CircuitBreaker policy. The circuit will be opened if 3 (4 x 0.75) failures occur among the rolling window of 4 consecutive invocations. The circuit will stay open for 1000 ms and then be back to half open. After a successful invocation, the circuit will be back to closed again.
+
+=== `@Bulkhead` policy
+
+This annotation can also be applied on class or method to enforce the Bulkhead policy. This pattern isolates failures in the current operation to preserve execution of other operations. The implementation does this by limiting the number of concurrent invocations on a given method.
+
+[source, java]
+----
+@Bulkhead(4)
+public void bulkheadedOperation() {
+       ...
+}
+----
+
+In the code above this method only supports 4 invocations at the same time.
+Bulkhead can also be used with @Asynchronous to limit the thread number in an asynchronous operation.
+
+=== Configure Fault Tolerance with MP config
+
+As we saw in the previous sections, Fault Tolerance policies are applied by using annotations. For most use cases this is enough, but for others this approach may be not be satisfactory because configuration is done at the source code level.
+
+That's the reason why MicroProfile Fault Tolerance annotations' parameters can be overridden using the MicroProfile config.
+
+The annotation parameters can be overwritten via config properties in the naming convention of: `<classname>/<methodname>/<annotation>/<parameter>`.
+
+To override the maxDuration for `@Retry` on the doSomething method in MyService class, set the config property like this:
+
+`org.example.microservice.MyService/doSomething/Retry/maxDuration=3000`
+
+If the parameters for a particular annotation needs to be configured with the same value for a particular class, use the config property: `<classname>/<annotation>/<parameter>` for configuration.
+
+For instance, use the following config property to override all maxRetries for the `@Retry` specified on the class MyService to 100.
+
+`org.example.microservice.MyService/Retry/maxRetries=100`
+
+Sometimes, the parameters need to be configured with the same value for the whole micro service (i.e. all occurrences of the annotation in the deployment).
+
+In this circumstance, the config property `<annotation>/<parameter>` overrides the corresponding parameter value for the specified annotation. For instance, in order to override all the maxRetries for all the `@Retry` to be 30, specify the following config property:
+
+`Retry/maxRetries=30`
