@@ -35,4 +35,4 @@ IBM
 
 |=========================================================
 
-Throughout this book, we will use the microservice-session microservice developed in the WildFly Swarm implementation of MicroProfile as a running example to showcase each Eclipse MicroProfile API. By the end of the book, you will have a working sample of the Session microservice.
+In Appendix A of this book, you will find the resources to download, build and run an adapted version of the "Conference Application, in which the microservice-session microservice, developed in the WildFly Swarm implementation of MicroProfile, has been enriched with the MicroProfile JWT Propagation, Health Check, Metrics, and Config APIs.
