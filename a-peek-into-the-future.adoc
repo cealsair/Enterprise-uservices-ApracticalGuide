@@ -1,6 +1,6 @@
 = A peek into the future
 
-As of the writing of this eBook, ideas for potential new Eclipse MicroProfile APIs are being discussed by the community. Some of these may actually become new MicroProfile APIs and others may not. Among these are: messaging, transactions, and service meshes.
+As of the writing of this book, ideas for potential new Eclipse MicroProfile APIs are being discussed by the community. Some of these may actually become new MicroProfile APIs and others may not. Among these are: messaging, transactions, and service meshes.
 
 Some of the MicroProfile APIs consist of leveraging existing technology, like CDI, JSON-P, and JAX-RS. Along those lines, there are plans to include JSON-B, introduced in Java EE 8, in the upcoming MicroProfile 2.0 release, tentatively scheduled for May 2018.
 
