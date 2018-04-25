@@ -31,4 +31,4 @@ Eclipse MicroProfile APIs/sub-projects are (with the project leads listed):
 
 |=========================================================
 
-Eclipse MicroProfile follows a time-boxed rapid incremental release schedule. Lastly, one key aspect of Eclipse MicroProfile is that it is managed and governed by the community and not a single vendor.
+Eclipse MicroProfile follows a time-boxed rapid incremental release schedule, which is public and listed at the Eclipse Foundation MicroProfile Project link:https://projects.eclipse.org/projects/technology.microprofile[page].
