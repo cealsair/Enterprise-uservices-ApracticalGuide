@@ -5,4 +5,8 @@ You can download, build and run an adapted version of the "Conference Applicatio
 https://github.com/MicroProfileJWT/microprofile-conference/releases/tag/MP-1.2-minishift
 
 You will find four downloadable assets at the link above:
-- A video that guides you through the installation, build, execution, and tour of the MicroProfile APIs as implemented in the adapted version of the "Conference Application".
+
+- MP12Demo.m4v: a video that guides you through the installation, build, execution, and tour of the MicroProfile APIs as implemented in the adapted version of the "Conference Application"
+- Source code (zip): the source code in zip format
+- Source code (tar.gz): the source in a compressed tar ball
+- MP12Demo.pdf: a step-by-step guide for the installation, build, execution, and tour of the MicroProfile APIs as implemented in the adapted version of the "Conference Application"
