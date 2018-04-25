@@ -32,4 +32,6 @@ At the moment, MicroProfile and Jakarta EE are separate projects under the Eclip
 - Eclipse MicroProfile is moved under the EE4J umbrella initiative and governed by the Jakarta EE Working Group
 - Things stay as they are now
 
-No matter how things end up, both projects can benefit from each other. The benefit that MicroProfile provides to Jakarta EE is the rapid innovation and "proofing" of new microservices APIs that can then be promoted to the Jakarta EE standards. Likewise, Jakarta EE serves as a stable, reliable, standards-based platform where MicroProfile APIs can continue to be used. But customers also benefit from these two projects. For those that are early adopters, they have MicroProfile, and for those that are risk averse, they have Jakarta EE. 
+No matter how things end up, both projects can benefit from each other. The benefit that MicroProfile provides to Jakarta EE is the rapid innovation and "proofing" of new microservices APIs that can then be promoted to the Jakarta EE standards. Likewise, Jakarta EE serves as a stable, reliable, standards-based platform where MicroProfile APIs can continue to be used. But customers also benefit from these two projects. For those that are early adopters, they have MicroProfile, and for those that are risk averse, they have Jakarta EE.
+
+Who knows what other changes the future will bring for MicroProfile. But one thing is for sure, Java developers and users will greatly benefit from the innovations being introduced by this much needed specification.
