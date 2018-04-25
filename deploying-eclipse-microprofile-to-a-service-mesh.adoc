@@ -1,3 +1,0 @@
-= Deploying Eclipse MicroProfile into a service mesh
-
-Elaborate
