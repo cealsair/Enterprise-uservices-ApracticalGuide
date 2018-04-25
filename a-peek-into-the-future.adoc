@@ -1,3 +1,7 @@
 = A peek into the future
 
-Discuss potential future sub-projects as well as Eclipse EE4J & Eclipse MicroProfile.
+As of the writing of this eBook, ideas for potential new Eclipse MicroProfile APIs are being discussed by the community. Some of these may actually become new MicroProfile APIs and others may not. Among these are: messaging, transactions, and service meshes.
+
+Some of the MicroProfile APIs consist of leveraging existing technology, like CDI, JSON-P, and JAX-RS. Along those lines, there are plans to include JSON-B, introduced in Java EE 8, in the upcoming MicroProfile 2.0 release, tentatively scheduled for May 2018.
+
+On August 24, 2018, Jakarta EE was officially announced and the Eclipse Foundation has declared it to be the future of cloud-native Java.
