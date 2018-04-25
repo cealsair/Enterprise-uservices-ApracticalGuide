@@ -27,7 +27,7 @@ Just as microservices and cloud-native Java are complementary, so are Eclipse Mi
 
 |=========================================================
 
-At the moment, these two are separate projects under the Eclipse Foundation. However, it is clear to both projects that there will be some kind of alignment in the near future. The different scenarios for this alignment from the governance perspective are:
+At the moment, MicroProfile and Jakarta EE are separate projects under the Eclipse Foundation. However, it is clear to both projects that there will be some kind of alignment in the near future. The different scenarios for this alignment from the governance perspective are:
 
 - Eclipse MicroProfile is moved under the EE4J umbrella initiative and governed by the Jakarta EE Working Group
 - Things stay as they are now
