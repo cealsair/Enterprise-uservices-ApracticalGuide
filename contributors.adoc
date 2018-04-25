@@ -1,6 +1,6 @@
 = Contributors
 
-We would like to thank the following people that have contributed to the contents of this eBook:
+We would like to thank the following people that have contributed to the contents of this book:
 
 - Heiko Braun
 - Pavol Loffay
