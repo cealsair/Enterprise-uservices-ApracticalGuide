@@ -1,0 +1,15 @@
+= Current Eclipse MicroProfile sub-projects/APIs
+
+Besides the JAX-RS, JSON-P, and CDI, Eclipse MicroProfile includes specifications for the following APIs:
+
+ - Config
+ - Fault Tolerance
+ - Health Check
+ - JWT Propagation
+ - Metrics
+ - OpenTracing
+ - OpenAPI
+ - Type-safe Rest Client
+ 
+The following sections provide a high-level introduction to each of them.
+ 
