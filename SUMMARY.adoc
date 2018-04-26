@@ -2,6 +2,7 @@
 
 * link:foreword.adoc[Foreword]
 * link:contributors.adoc[Contributors]
+* link:acknowledgements.adoc[Acknowledgements]
 * link:README.adoc[Introduction]
 * link:forces-that-fuel-the-digital-economy.adoc[Forces that fuel The Digital Economy]
 * link:multi-speed-it.adoc[Multi-speed IT]
