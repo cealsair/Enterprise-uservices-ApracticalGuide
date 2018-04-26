@@ -1,1 +1,6 @@
+= Acknowledgements
 
+We would like to thank the following people that have helped with reviews of this book:
+
+- John Clingan
+- Eric Wittman
