@@ -1,27 +1,23 @@
 = JWT RBAC for MicroProfile
 
-The JWT RBAC for MicroProfile(MP-JWT) subproject outlines the requirements for using link:http://openid.net/connect/[OpenID Connect(OIDC)] based link:https://tools.ietf.org/html/rfc7519[JSON Web Tokens(JWT)] for role based access control(RBAC) of microservice endpoints.
+The JWT RBAC for MicroProfile(MP-JWT) subproject outlines the requirements for using link:http://openid.net/connect/[OpenID Connect (OIDC)] based link:https://tools.ietf.org/html/rfc7519[JSON Web Tokens (JWT)] for role based access control (RBAC) of microservice endpoints.
 
 This is done by defining which of the standard JWT claims are required, as well as introducing a two additional claims to support the RBAC functionality. 
 
 ## Recommendations for Interoperability
 
-The maximum utility of the MP-JWT as a token format depends on the agreement between both identity
-providers and service providers. This means identity providers - responsible for issuing tokens - should be able to issue tokens using the MP-JWT format in a way that service providers can understand in order to introspect the token and gather information about a subject. To that end, the requirements for the MicroProfile JWT are:
+The maximum utility of the MP-JWT as a token format depends on the agreement between both identity providers and service providers. This means identity providers - responsible for issuing tokens - should be able to issue tokens using the MP-JWT format in a way that service providers can understand in order to introspect the token and gather information about a subject. To that end, the requirements for the MicroProfile JWT are:
 
 1. Be usable as an authentication token.
-2. Be usable as an authorization token that contains Java EE application level roles indirectly granted via a
-groups claim.
+2. Be usable as an authorization token that contains Java EE application level roles indirectly granted via a groups claim.
 3. Can be mapped to IdentityStore in https://www.jcp.org/en/jsr/detail?id=375[JSR375].
 4. Can support additional standard claims described in https://www.iana.org/assignments/jwt/jwt.xhtml[IANA JWT Assignments]
 as well as non-standard claims.
 
 To meet those requirements, we introduce 2 new claims to the MP-JWT:
 
-* "upn": A human readable claim that uniquely identifies the subject or user principal of the token, across
-the MicroProfile services the token will be accessed with.
-* "groups": The token subject's group memberships that will be mapped to Java EE style application
-level roles in the MicroProfile service container.
+* "upn": A human readable claim that uniquely identifies the subject or user principal of the token, across the MicroProfile services the token will be accessed with.
+* "groups": The token subject's group memberships that will be mapped to Java EE style application level roles in the MicroProfile service container.
 
 ### Minimum MP-JWT Required Claims
 The required minimum set of MP-JWT claims is then:
@@ -49,7 +45,7 @@ upn:: This MP-JWT custom claim is the user principal name in the java.security.P
     attempted, and if that claim is missing, fallback to the "sub" claim should be used.
 groups:: This MP-JWT custom claim is the list of group names that have been assigned to the principal of the MP-JWT.
     This typically will required a mapping at the application container level to application deployment roles, but a
-    a one-to-one between group names and application role names is required to be performed in addition to any other mapping.
+     one-to-one between group names and application role names is required to be performed in addition to any other mapping.
 
 [NOTE]
 NumericDate used by `exp`, `iat`, and other date related claims is a JSON numeric value
@@ -87,7 +83,7 @@ There is an additional `org.eclipse.microprofile.auth.LoginConfig` annotation
 
 === Marking a JAX-RS Application as Requiring MP-JWT Access Control
 Since the MicroProfile does not specify a deployment format, and currently does not rely on servlet metadata descriptors, we have added an `org.eclipse.microprofile.jwt.LoginConfig`
-annotation that provides the same information as the web.xml login-config element. It's intended usage is to mark a JAX-RS `Application` as requiring MicroProfile JWT RBAC as shown in the following sample:
+annotation that provides the same information as the `web.xml login-config` element. Its intended usage is to mark a JAX-RS `Application` as requiring MicroProfile JWT RBAC as shown in the following sample:
 
 ```java
 import org.eclipse.microprofile.annotation.LoginConfig;
@@ -102,11 +98,11 @@ public class TCKApplication extends Application {
 ```
 
 
-== Snippet(s) of sample code that uses MP-JWT.
-The basic usage of the MP-JWT API is to inject the with the JsonWebToken, its ClaimValues, or both. In this section we present snippets of typical usage.
+== Snippets of sample code that use MP-JWT.
+The basic usage of the MP-JWT API is to inject the JsonWebToken, its ClaimValues, or both. In this section we present snippets of typical usage.
 
 === Injection of JsonWebToken
-This code sample illustrates access of the incoming MP-JWT token as a `JsonWebToken`, the raw JWT token string, and through the contain `Principal`.
+This code sample illustrates access of the incoming MP-JWT token as a `JsonWebToken`, the raw JWT token string, and through the container `Principal`.
 
 
 ```java
@@ -148,7 +144,7 @@ public class JWTInjection {
     @GET
     @Path("/accessPrinipal")
     @RolesAllowed("Echoer")
-    public String accessPrinipal(@Context SecurityContext sec, @QueryParam("input") String input) {
+    public String accessPrincipal(@Context SecurityContext sec, @QueryParam("input") String input) {
         Principal user = sec.getUserPrincipal();
         assert user instanceof JsonWebToken; //<5>
         return input + ", user="+user.getName();
@@ -156,7 +152,7 @@ public class JWTInjection {
 
 }
 ```
-<1> Direct injection of `JsonWebToken value.
+<1> Direct injection of `JsonWebToken` value.
 <2> Injection of the raw JWT token string. This could be used to propagate the incoming token in a chained call.
 <3> Get user name from injected `JsonWebToken`.
 <4> Verify that the `JsonWebToken` name claim is equal to the container provided principal name.
