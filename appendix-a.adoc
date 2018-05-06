@@ -1,12 +1,11 @@
 = Appendix A - Complete code sample
 
-You can download, build and run an adapted version of the "Conference Application", in which the microservice-session microservice, developed in the WildFly Swarm implementation of MicroProfile, has been enriched with the MicroProfile JWT Propagation, Health Check, Metrics, and Config APIs, from the following GitHub location:
-
+You can download, build, and run an adapted version of the "Conference Application."  This is an application in which the microservice-session microservice, developed in the WildFly Swarm implementation of MicroProfile, has been enriched with the MicroProfile JWT Propagation, Health Check, Metrics, and Config APIs.
+ 
+You will find four downloadable assets at the following GitHub location:
 https://github.com/MicroProfileJWT/microprofile-conference/releases/tag/MP-1.2-minishift
 
-You will find four downloadable assets at the link above:
-
-- MP12Demo.m4v: a video that guides you through the installation, build, execution, and tour of the MicroProfile APIs as implemented in the adapted version of the "Conference Application"
-- Source code (zip): the source code in zip format
-- Source code (tar.gz): the source in a compressed tar ball
-- MP12Demo.pdf: a step-by-step guide for the installation, build, execution, and tour of the MicroProfile APIs as implemented in the adapted version of the "Conference Application"
+- *MP12Demo.m4v*: a video that guides you through the installation, build, execution, and tour of the MicroProfile APIs as implemented in the adapted version of the "Conference Application."
+- *Source code* (zip): the source code in zip format.
+- *Source code* (tar.gz): the source in a compressed tarball.
+- *MP12Demo.pdf*: a step-by-step guide for the installation, build, execution, and tour of the MicroProfile APIs as implemented in the adapted version of the "Conference Application."
