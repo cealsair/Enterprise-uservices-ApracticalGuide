@@ -1,11 +1,11 @@
 = Interoperability - "The Conference Application"
 
-The “Conference Application”, first link:https://www.youtube.com/watch?v=iG-XvoIfKtg[demoed] during Devoxx Belgium back in November 2016, is a MicroProfile demo that showcases the integration of different MicroProfile vendor implementations.  The demo consists of four microservices, each developed by a different vendor implementation of MicroProfile. This link:https://github.com/eclipse/microprofile-conference[demo] is maintained by the community.
+The “Conference Application”, first link:https://www.youtube.com/watch?v=iG-XvoIfKtg[presented] during Devoxx Belgium in November 2016, is a MicroProfile demo that showcases the integration of different MicroProfile vendor implementations.  The demo consists of four microservices, each developed by a different vendor implementation of MicroProfile. This link:https://github.com/eclipse/microprofile-conference[demo application] is maintained by the community.
 
-The "Conference Application" mimics an app used by the attendee of a technical conference to:
+The "Conference Application" mimics an application used by the attendees of a technical conference to:
 
-- See list of sessions to attend (Session microservice)
-- See list of speakers delivering sessions (Speaker microservice)
+- See a list of sessions to attend (Session microservice)
+- See a list of speakers delivering sessions (Speaker microservice)
 - Schedule sessions to attend (Schedule microservice)
 - Vote for a session (Vote microservice)
 
@@ -15,7 +15,7 @@ Here is a pictorial description of the architecture of the "Conference Applicati
 
 image:/assets/PicOfConfAppArch.png[alt=""]
 
-The following table summarizes each microservice, its underlying open source implementation, and vendor that developed the microservice business logic.
+The following table summarizes each microservice, its underlying open source implementation, and the vendor that developed the microservice business logic.
 
 .Conference App microservices
 [width="80%",cols="3,^2,^2,10",options="header"]

@@ -1,12 +1,12 @@
-= Type safe Rest Client
+= Type-safe Rest Client
 
-The Microprofile Rest Client provides an API for type-safe invocation on Rest endpoints. It can be used from applications to perform remote invocations on other services.
+The MicroProfile REST Client provides an API for type-safe invocation on REST endpoints. It can be used from applications to perform remote invocations on other services.
 
 It leverages JAX-RS annotations on Java interfaces to describe the actual contract with remotes services. These interfaces are then used to create  client proxies that hide much of the underlying HTTP communication.  
 
 == Rest Client API
 
-Two concepts are central to the rest client API: The client interface used to describe the contract with a remote service and the API to construct a client proxy. Let's look at the client interface first:
+Two concepts are central to the REST client API: The client interface used to describe the contract with a remote service and the API to construct a client proxy. Let's look at the client interface first:
 
 [source, java]
 ----
@@ -41,13 +41,13 @@ IPService svc = RestClientBuilder.newBuilder()
 JsonObject response = svc.getIP();                
 ----
 
-You use an URL and the client interface to construct a client proxy through `RestClientBuilder`.  The resulting instance of `IPService` can be used to invoke on the service and all HTTP communication will happen underneath.
+You use a URL and the client interface to construct a client proxy through `RestClientBuilder`.  The resulting instance of `IPService` can be used to invoke the service and all HTTP communication will happen underneath.
 
 Payload bindings to JSON-P, `javax.ws.rs.core.Response` and common simple types are supported out-of-the-box, but you can also introduce custom types if needed.
 
 == Using custom types
 
-The default types take you a long way, but it might be useful or needed to work with custom types. The Rest Client API, building on JAX-RS, allows to use custom types – given that a `MessageBodyReader` and `MessageBodyWriter` for that type exists.
+The default types take you a long way, but you may find that it would be useful to create some custom types. The REST Client API, building on JAX-RS, lets you use custom types – given that a `MessageBodyReader` and `MessageBodyWriter` for that type exists.
 
 The following is an example where we explicitly create a `MessageBodyReader` for a custom type `IPService.IP`:
 
@@ -106,6 +106,6 @@ IPService svc =
 ----
 
 
-== Eclipse resources/GitHub coordinates for MP-Rest Client.
-The rest client project source code can be found at the following location: https://github.com/eclipse/microprofile-rest-client
+== Eclipse resources/GitHub coordinates for MicroProfile-Rest Client.
+The REST client project source code can be found at the following location: https://github.com/eclipse/microprofile-rest-client
 

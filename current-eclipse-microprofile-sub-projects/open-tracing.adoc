@@ -1,8 +1,8 @@
 = OpenTracing
 
-In the modern world of microservices, a single request can traverse multiple processes running on different machines, datacenters or even geographical regions. The problem is often even more difficult because these services are written in different programming languages. These distributed polyglot applications are becoming gradually more difficult to understand and troubleshoot.
+In the modern world of microservices, a single request can traverse multiple processes running on different machines, datacenters, or even geographical regions. The problem of tracing a request is often even more difficult because these services are written in different programming languages. These distributed polyglot applications are becoming gradually more difficult to understand and troubleshoot.
 
-OpenTracing (OT) is a vendor-neutral standard for describing distributed transactions. It is a specification and a set of APIs for different programming languages. MicroProfile-OpenTracing (MP-OT) brings OpenTracing to enterprise Java environment. At the moment MP-OT specification defines tracing for JAX-RS and explicit code instrumentation.
+OpenTracing (OT) is a vendor-neutral standard for describing distributed transactions. It is a specification and a set of APIs for different programming languages. MicroProfile-OpenTracing (MP-OT) brings OpenTracing to the enterprise Java environment. Currently the MP-OT specification defines tracing for JAX-RS and explicit code instrumentation.
 
 Distributed tracing can be used for:
 
@@ -11,9 +11,9 @@ Distributed tracing can be used for:
 * Distributed context propagation -- baggage
 * Contextual logging
 
-==== OpenTracing Terminology
+== OpenTracing Terminology
 
-There are three key concepts in OpenTracing: Span, SpanContext and Tracer. Span is used to model an unit of work (e.g. an invoked operation) in the system. It can be an internal method call or processing of a server request. A set of spans (directed acyclic graph) is called trace. Spans in the trace are related and usually model a transaction in a distributed system. Spans hold timing information, tags and logs. Identifiers are encapsulated in the object called SpanContext. The last important interface is Tracer. It is used to create spans and usually there is only one shared instance in the system.
+There are three key concepts in OpenTracing: Span, SpanContext, and Tracer. Span is used to model a unit of work (for example, an invoked operation) in the system. It can be an internal method call or processing of a server request. A set of spans (directed acyclic graph) is called a trace. Spans in the trace are related and usually model a transaction in a distributed system. Spans hold timing information, tags, and logs. Identifiers are encapsulated in the object called SpanContext. The last important interface is Tracer. It is used to create spans and usually there is only one shared instance in the system.
 
 == Configuration
 
@@ -78,14 +78,14 @@ public class JaxRsService {
 
 == Explicit Tracing
 
-Important service classes can be explicitly traced by `@Traced` annotation. This annotation can be added at class or method level. If the annotation is applied on a class level all methods are traced. 
+Important service classes can be explicitly traced by the `@Traced` annotation. This annotation can be added at the class or method level. If the annotation is applied on a class level all methods are traced. 
 
 The annotation has two parameters:
 
 * `traced = true` -- by default enables tracing
 * `operationName = ""` -- a default operation name to override the default `<package>.<class>.<method-name>`. When overriding operation names keep in mind to use unique names for different operations. 
 
-The annotation can be also used for JAX-RS endpoint. Typical use-case is to disable tracing for certain endpoint -- health check.
+The annotation can be also used for JAX-RS endpoint. A typical use-case is to disable tracing for a certain endpoint -- health check.
 
 [[explicitly-traced-service]]
 [source, java]
@@ -109,7 +109,7 @@ public class Service {
 }
 ----
 
-Code snippet <<explicitly-traced-service>> shows an explicitly traced class. There are two interesting things: method `notTracedOperation` is not being traced and the span modeling the invocation of `renamedOperation` method will have a string `"customName"` as  the operation name.
+Code snippet <<explicitly-traced-service>> shows an explicitly traced class. There are two interesting things: method `notTracedOperation` is not being traced, and the span modeling the invocation of `renamedOperation` method will have a string `"customName"` as  the operation name.
 
 == Eclipse resources/GitHub coordinates for MP-OpenTracing
 
