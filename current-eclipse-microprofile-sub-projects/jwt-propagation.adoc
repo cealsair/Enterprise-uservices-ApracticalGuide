@@ -22,7 +22,7 @@ To meet those requirements, we introduce 2 new claims to the MP-JWT:
 ### Minimum MP-JWT Required Claims
 The required minimum set of MP-JWT claims is then:
 
-typ:: This JOSE header parameter identifies the token as an RFC7519 and must be "JWT" https://tools.ietf.org/html/rfc7519#section-5.1[RFC7519, Section 5.1]
+typ:: This JOSE (JSON Object Signing and Encryption) header parameter identifies the token as an RFC7519 and must be "JWT" https://tools.ietf.org/html/rfc7519#section-5.1[RFC7519, Section 5.1]
 alg:: This JOSE header parameter identifies the cryptographic algorithm used to secure the JWT. MP-JWT requires the
  use of the RSASSA-PKCS1-v1_5 SHA-256 algorithm and must be specified as "RS256", https://tools.ietf.org/html/rfc7515#section-4.1.1[RFC7515, Section 4.1.1]
 kid:: This JOSE header parameter is a hint indicating which key was used to secure the JWT. https://tools.ietf.org/html/rfc7515#section-4.1.4[RFC7515, Section-4.1.4]
@@ -76,10 +76,10 @@ The APIs the MP-JWT project introduces the following interfaces and classes unde
 * `JsonWebToken`, a `java.security.Principal` interface extension that makes the set of required claims available via get style accessors, along with general access to any claim in the JWT.
 * `Claims`, enumeration utility class encapsulates all the standard JWT related claims along with a description and the required Java type for the claim as returned from the `JsonWebToken#getClaim(String)`
 method.
-* `Claim`, a qualifier annotation used to signify an injection point for a {@link ClaimValue} from
+* `Claim`, a qualifier annotation used to signify an injection point for a {@link ClaimValue}.
 * `ClaimValue<T>`, a `java.security.Principal` interface extension for use with the `Claim` qualifier to directly inject claim values from the JWT.
 
-There is an additional `org.eclipse.microprofile.auth.LoginConfig` annotation 
+There is an additional `org.eclipse.microprofile.auth.LoginConfig` annotation. 
 
 === Marking a JAX-RS Application as Requiring MP-JWT Access Control
 Since the MicroProfile does not specify a deployment format, and currently does not rely on servlet metadata descriptors, we have added an `org.eclipse.microprofile.jwt.LoginConfig`
