@@ -35,8 +35,9 @@ Just as microservices and cloud-native Java are complementary, so are Eclipse Mi
 
 At the moment, MicroProfile and Jakarta EE are separate projects under the Eclipse Foundation. However, it is clear to both projects that there will be some kind of alignment in the near future. The different scenarios for this alignment from the governance perspective are:
 
-- Eclipse MicroProfile is moved under the EE4J umbrella initiative and governed by the Jakarta EE Working Group.
-- Things stay as they are now.
+- Eclipse MicroProfile is moved under the EE4J umbrella initiative and governed by the link:https://www.eclipse.org/org/workinggroups/jakarta_ee_charter.php[Jakarta EE Working Group].
+- Eclipse MicroProfile is moved under the link:https://projects.eclipse.org/projects/ee4j/charter[EE4J] umbrella initiative and continues with its own governance processes.
+- Things stay as they are now, both under the Eclipse Foundation as separate projects and each with their own governance processes.
 
 No matter how things end up, both projects can benefit from each other. The benefit that MicroProfile provides to Jakarta EE is the rapid innovation and "proofing" of new microservices APIs that can then be promoted to the Jakarta EE standards. Likewise, Jakarta EE serves as a stable, reliable, standards-based platform where MicroProfile APIs can continue to be used. Customers also benefit from having two projects. The early adopters can choose MicroProfile and those that are risk averse can choose Jakarta EE.
 
