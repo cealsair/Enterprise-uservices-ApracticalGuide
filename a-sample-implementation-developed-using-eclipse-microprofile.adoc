@@ -1,4 +1,0 @@
-= A sample implementation developed using Eclipse MicroProfile
-
-Describe the sample application developed using WildFly Swarm (and/or RHOAR)
-Point to gitHub location of source for readers to download and get started
