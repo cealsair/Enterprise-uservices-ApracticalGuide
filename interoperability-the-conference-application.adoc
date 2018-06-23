@@ -25,7 +25,7 @@ The following table summarizes each microservice, its underlying open source imp
 |microservice-session | Session microservice lists available conference sessions | WildFly Swarm |
 Red Hat
 
-|microservice-schedule |Schedule microservice allows the scheduling of conference sessions | Payara Micro (GlassFish) |
+|microservice-schedule |Schedule microservice allows the scheduling of conference sessions | Payara Micro |
 Payara
 
 |microservice-speaker |Speaker microservice lists conference session speakers | Apache TomEE | Tomitribe
