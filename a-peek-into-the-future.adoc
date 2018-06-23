@@ -2,7 +2,9 @@
 
 As of the writing of this book, ideas for potential new Eclipse MicroProfile APIs are being discussed by the community. Some of these may actually become new MicroProfile APIs and others may not. Among these are: messaging, transactions, and service meshes.
 
-Some of the MicroProfile APIs consist of leveraging existing technology, like CDI, JSON-P, and JAX-RS. Along those lines, there are plans to include JSON-B, introduced in Java EE 8, in the upcoming MicroProfile 2.0 release, tentatively scheduled for May 2018.
+Some of the MicroProfile APIs consist of leveraging existing technology, like CDI, JSON-P, and JAX-RS. Along those lines, there are plans to include updates to CDI, JSON-P, and JAX-RS, as well as the addition of JSON-B, introduced in Java EE 8, in the upcoming MicroProfile 2.0 release, tentatively scheduled for June 2018. MicroProfile 2.0 would then become the base moving forward.
+
+As far as roadmap, the community is already working on future APIs, such as Reactive Streams, Reactive Events, Long Running Actions, Data Access, Event Data, etc., all of which will be included in future Eclipse MicroProfile 2.x releases.
 
 On August 24, 2018, Jakarta EE was officially announced by the Eclipse Foundation, which has declared Jakarta EE to be the future of cloud-native Java. In September 2017, Oracle announced that they would donate Java EE technologies to the Eclipse Foundation. The starting point for Jakarta EE technology is the donated Java EE technology from Oracle. 
 
