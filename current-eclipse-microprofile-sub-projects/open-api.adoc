@@ -11,7 +11,8 @@ GET http://myHost:myPort/openapi
 ----
 
 *****
-The protocol required is http. Vendors are encouraged, but not required, to support the https protocol as well, to enable a secure connection to the OpenAPI endpoint.
+
+The protocol required is http. Vendors are encouraged, but not required, to support the https protocol as well, to enable a secure connection to the OpenAPI endpoint.
 *****
 
 There are three sources from which the OpenAPI document is created.  These three sources (described in further detail below) are:
@@ -24,7 +25,8 @@ These three sources (any combination) are combined to produce a single OpenAPI d
 
 == Configuration
 
-Configuration of various parts of this specification is provided via the MicroProfile Config mechanism.There are various ways to inject these configuration values into a MicroPrpfile OpenAPI framework, including the default ConfigSource as well as custom ConfigSources.
+Configuration of various parts of this specification is provided via the MicroProfile Config mechanism.
+There are various ways to inject these configuration values into a MicroPrpfile OpenAPI framework, including the default ConfigSource as well as custom ConfigSources.
 There are many configurable items, the following table contains a subset of them. 
 
 .Subset of MicroProfile OpenAPI configuration items
@@ -32,13 +34,22 @@ There are many configurable items, the following table contains a subset of them
 |=========================================================
 |Configuration item |Description
 
-|mp.openapi.scan.disable | Configuration property to disable annotation scanning. Default value is "false".
+|mp.openapi.scan.di
+sable | Configuration property to disable annotation scanning. Default value is "false".
 
-|mp.openapi.servers | Configuration property to specify the list of global servers that provideconnectivity information. For example,mp.openapi.servers=https://xyz.com/v1,https://abc.com/v1
+|mp.openapi.servers | Configuration property to specify the list of global servers that provide
+connectivity information. For example,
+mp.openapi.servers=https://xyz.com/v1,https://abc.com/v1
 
-|mp.openapi.servers.path. | Prefix of the configuration property to specify an alternative list of servers to service all operations in a path. For example,mp.openapi.servers.path./airlines/bookings/\{id}=https://xyz.io/v1
+|mp.openapi.servers
+.path. | Prefix of the configuration property to specify an alternative list of servers to
+ service all operations in a path. For example,
+mp.openapi.servers.path./airlines/bookings/\{id}=https://xyz.io/v1
 
-|mp.openapi.servers.operation. | Prefix of the configuration property to specify an alternative list of servers to service an operation. Operations that want to specify an alternative list of servers must define an operationId, a unique string used to identify the operation. For example,mp.openapi.servers.operation.getBooking=https://abc.io/v1
+|mp.openapi.servers
+.operation. | Prefix of the configuration property to specify an alternative list of servers to service an operation. Operations that want to specify an alternative list of servers must define an operationId, a unique string used to identify the
+ operation. For example,
+mp.openapi.servers.operation.getBooking=https://abc.io/v1
 
 |=========================================================
 
@@ -51,13 +62,17 @@ As already described, the MicroProfile OpenAPI specification requires that an Op
 
 You then have a few choices:
 
-1. Augment the JAX-RS annotations with the OpenAPI Annotations.
 
-2. Take the initial output from `/openapi` as a starting point to document your APIs via Static OpenAPI files. Static files can also be written before any code, which is an approach often adopted by enterprises to lock-in the contract of the API, that is, API-first development practice.
+1. Augment the JAX-RS annotations with the OpenAPI Annotations.
 
-3. Use the Programming model to provide a bootstrap (or complete) OpenAPI model tree.
 
-Additionally, a filter can be used to update the OpenAPI model after it has been built from the previously described documentation mechanisms.
+2. Take the initial output from `/openapi` as a starting point to document your APIs via Static OpenAPI files. Static files can also be written before any code, which is an approach often adopted by enterprises to lock-in the contract of the API, that is, API-first development practice.
+
+
+3. Use the Programming model to provide a bootstrap (or complete) OpenAPI model tree.
+
+Additionally, a filter can be used to update the OpenAPI model after it has been built from 
+the previously described documentation mechanisms.
 
 == Annotations
 
@@ -94,7 +109,8 @@ Some usage examples of the MicroProfile OpenAPI annotations follow:
 @GET
 @Path("/findByStatus")
 @Operation(summary = "Finds Pets by status",
-           description = "Multiple status values can be provided with comma separated strings")
+           description = "Multiple status values can be provided with comma separated
+ strings")
 public Response findPetsByStatus(...)
 { ... }
 ----
@@ -114,13 +130,16 @@ public Response findPetsByStatus(...)
 ----
 @GET
 @Path("/{username}")
-@Operation(summary = "Get user by user name")  @APIResponse(description = "The user",
+@Operation(summary = "Get user by user name")
+  @APIResponse(description = "The user",
              content = @Content(mediaType = "application/json",
                                 schema = @Schema(implementation = User.class))),
 @APIResponse(responseCode = "400", description = "User not found")
 public Response getUserByName(
-        @Parameter(description = "The name that needs to be fetched. Use user1 for  testing. ", required = true) @PathParam("username") String username)
-{...}
+        @Parameter(description = "The name that needs to be fetched. Use user1 for
+  testing. ", required = true) @PathParam("username") String username)
+
+{...}
 ----
 
 .Output for Sample 2
@@ -177,7 +196,7 @@ The `OASModelReader` interface allows you to bootstrap the OpenAPI model tree us
 mp.openapi.model.reader=com.mypackage.MyModelReader
 ----
 
-NOTE: Similar to static files, the model reader can be used to provide either complete or partial model trees. If providing a complete OpenAPI model tree, you should set the `mp.openapi.scan.disable` configuration to "true". Oherwise this partial model will be used as the base model during the processing.
+NOTE: Similar to static files, the model reader can be used to provide either complete or partial model trees. If providing a complete OpenAPI model tree, you should set the `mp.openapi.scan.disable` configuration to "true". Otherwise this partial model will be used as the base model during the processing.
 
 == Using a Filter for updates
 
