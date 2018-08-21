@@ -212,8 +212,8 @@ If the `,` must be part of an item, it must be escaped with a `\`.
 private String[] pets = config.getValue("myPets", String[].class);
 ----
 
-If the value of the property `myPets` is `dog,cat,dog\\,cat`, the elements of the array stores in
-`pets` would be `{"dog", "cat", "dog,cat"}``
+If the value of the property `myPets` is `dog,cat,dog\\,cat`, the elements of the array stored in
+`pets` would be `{"dog", "cat", "dog,cat"}`
 
 === Automatic Converters
 
