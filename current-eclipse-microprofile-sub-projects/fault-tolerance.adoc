@@ -1,6 +1,6 @@
 = Fault Tolerance
 
-Eclipse MicroProfile Fault Tolerance provides a standard and easy way to add resiliency to your microservice or other Java EE development.
+Fault tolerance is about leveraging different strategies to guide the execution and result of some logic. Retry policies, bulkheads, and circuit breakers are popular concepts in this area. They dictate whether and when executions should take place, and fallbacks offer an alternative result when an execution does not complete successfully. Eclipse MicroProfile Fault Tolerance provides a standard and easy way to add resiliency to your microservice.
 
 Fault Tolerance is based on Contexts and Dependency Injection (CDI) and more precisely on the CDI interceptor implementation. It also relies on the MicroProfile Config specification to allow external configuration for Fault Tolerance policies.
 
