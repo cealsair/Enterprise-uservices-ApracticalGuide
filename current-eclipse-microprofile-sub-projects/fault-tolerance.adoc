@@ -19,8 +19,8 @@ Applying one or more of these policies is as easy as adding the required annotat
 
 Right now the following vendors are providing an implementation for the specification.
 
-* Red Hat in WildFly Swarm
-* IBM in WebSphere Liberty
+* Red Hat in Thorntail
+* IBM in Open Liberty
 * Payara in Payara Server
 * Apache Safeguard for Hammock and TomEE
 * KumuluzEE for KumuluzEE framework
