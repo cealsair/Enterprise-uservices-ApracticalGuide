@@ -21,7 +21,7 @@ As of this writing, there exist six implementations of Eclipse MicroProfile, and
 
 |Launcher | A feature of Launcher | link:https://github.com/fujitsu/launcher[GitHub] | Fujitsu
 
-|Helidon | A feature of Helidon | link:https://github.com/oracle/helidon[GitHub] | Oracle
+|link:https://helidon.io/#[Helidon] | A feature of Helidon | link:https://github.com/oracle/helidon[GitHub] | Oracle
 
 |=========================================================
 
