@@ -1,6 +1,6 @@
 = Eclipse MicroProfile Value Proposition
 
-For customers that trust enterprise Java to run their production workloads, Eclipse MicroProfile provides customers an open source community-driven vendor-neutral specification for enterprise Java microservices.  Eclipse MicroPrifle enables them to better fulfill the needs of the business via improved agility and scalability, faster time-to-market, higher development productivity, easier debugging and maintenance, and continuous integration and continuous deployment.
+For customers that trust enterprise Java to run their production workloads, Eclipse MicroProfile provides customers an open source community-driven vendor-neutral specification for enterprise Java microservices.  Eclipse MicroProfile enables them to better fulfill the needs of the business via improved agility and scalability, faster time-to-market, higher development productivity, easier debugging and maintenance, and continuous integration and continuous deployment.
  
 In general, according to Martin Fowler, a respected software developer, author, and speaker, microservices provide the following link:https://martinfowler.com/articles/microservice-trade-offs.html[benefits]:
 
