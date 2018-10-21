@@ -13,7 +13,7 @@ In addition to the general benefits of microservices, Eclipse MicroProfile parti
 - the benefits of community collaboration.  Eclipse MicroProfile is an open source project run by the community.  No single vendor controls or determines the evolution and maturation of the specification. 
 - freedom of choice of implementation. Many vendors have implemented Eclipse MicroProfile as part of their software stacks and customers have the option to select whichever implementation is the most appropriate for their environment.
 - faster evolution. Since Eclipse MicroProfile is an innovation project, new and improved functionality is delivered frequently in time-boxed releases.  This allows developers and customers to have these at their fingertips and start leveraging updates in their projects sooner rather than later.
-- decades of experience, market-tested and production proven in the Java EE APIs that it builds upon, offering maturity to developers.
+- decades of experience, market-tested and production-proven capabilities in the Java EE APIs that it builds upon, offering maturity to developers.
 - familiarity with enterprise Java. Eclipse MicroProfile builds upon familiar enterprise Java constructs making it easy for enterprise Java developers to adopt.
 - no re-training needed. Your existing enterprise Java developers will find Eclipse MicroProfile to be a natural progression of their expertise. There is little to no learning curve. They will be able to leverage their skills.
 - interoperability across different MicroProfile implementations provides users the freedom to select one or combine many MicroProfile implementations in an application.
