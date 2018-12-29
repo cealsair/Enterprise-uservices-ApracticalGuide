@@ -35,4 +35,4 @@ IBM
 
 |=========================================================
 
-In Appendix A of this book, you will find the resources to download, build and run an adapted version of the "Conference Application", in which the microservice-session microservice, developed in the WildFly Swarm implementation of MicroProfile, has been enriched with the MicroProfile JWT Propagation, Health Check, Metrics, and Config APIs.
+In Appendix A of this book, you will find the resources to download, build and run an adapted version of the "Conference Application", in which the microservice-session microservice, developed in the Thorntail implementation of MicroProfile, has been enriched with the MicroProfile JWT Propagation, Health Check, Metrics, and Config APIs.
