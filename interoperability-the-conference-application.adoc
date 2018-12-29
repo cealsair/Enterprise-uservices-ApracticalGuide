@@ -22,7 +22,7 @@ The following table summarizes each microservice, its underlying open source imp
 |=========================================================
 |Microservice name |Description |Open Source Implementation |Vendor
 
-|microservice-session | Session microservice lists available conference sessions | WildFly Swarm |
+|microservice-session | Session microservice lists available conference sessions | Thorntail |
 Red Hat
 
 |microservice-schedule |Schedule microservice allows the scheduling of conference sessions | Payara Micro |
